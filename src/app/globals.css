@@ -84,3 +84,16 @@ html {
   animation: slideUp 0.5s ease-in-out;
 }
 
+/* Shimmer animation pour le logo */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-200%) skewX(-12deg);
+  }
+  50% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(-200%) skewX(-12deg);
+  }
+}
+

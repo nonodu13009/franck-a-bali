@@ -7,35 +7,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const series = await getSeries();
   const posts = await getBlogPosts();
 
-  const seriesUrls = series.flatMap((s) => [
-    {
-      url: `${baseUrl}/fr/gallery/${s.slug || s.id}`,
-      lastModified: s.createdAt.toDate(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/gallery/${s.slug || s.id}`,
-      lastModified: s.createdAt.toDate(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-  ]);
+  const seriesUrls = series.flatMap((s) => {
+    const createdAt = s.createdAt as { seconds: number; nanoseconds: number };
+    const date = new Date(createdAt.seconds * 1000);
+    return [
+      {
+        url: `${baseUrl}/fr/gallery/${s.slug || s.id}`,
+        lastModified: date,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/en/gallery/${s.slug || s.id}`,
+        lastModified: date,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+    ];
+  });
 
-  const blogUrls = posts.flatMap((post) => [
-    {
-      url: `${baseUrl}/fr/blog/${post.slug}`,
-      lastModified: post.publishedAt.toDate(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/en/blog/${post.slug}`,
-      lastModified: post.publishedAt.toDate(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
-  ]);
+  const blogUrls = posts.flatMap((post) => {
+    const publishedAt = post.publishedAt as { seconds: number; nanoseconds: number };
+    const date = new Date(publishedAt.seconds * 1000);
+    return [
+      {
+        url: `${baseUrl}/fr/blog/${post.slug}`,
+        lastModified: date,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      },
+      {
+        url: `${baseUrl}/en/blog/${post.slug}`,
+        lastModified: date,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      },
+    ];
+  });
 
   return [
     {

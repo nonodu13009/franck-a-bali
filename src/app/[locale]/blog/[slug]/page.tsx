@@ -49,7 +49,7 @@ export default async function BlogPostPage({
   const title = locale === 'en' ? post.titleEn : post.title;
   const content = locale === 'en' ? post.contentEn : post.content;
   const publishedDate = new Date(
-    post.publishedAt.seconds * 1000
+    (post.publishedAt as { seconds: number; nanoseconds: number }).seconds * 1000
   ).toLocaleDateString(locale === 'en' ? 'en-US' : 'fr-FR', {
     year: 'numeric',
     month: 'long',
@@ -61,7 +61,7 @@ export default async function BlogPostPage({
       <header className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4">{title}</h1>
         <div className="flex items-center gap-4 text-sm text-muted-foreground">
-          <time dateTime={post.publishedAt.toDate().toISOString()}>
+          <time dateTime={new Date((post.publishedAt as { seconds: number; nanoseconds: number }).seconds * 1000).toISOString()}>
             {publishedDate}
           </time>
           <span>•</span>

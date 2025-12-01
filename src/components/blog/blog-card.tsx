@@ -10,7 +10,7 @@ interface BlogCardProps {
 export function BlogCard({ post, locale }: BlogCardProps) {
   const title = locale === 'en' ? post.titleEn : post.title;
   const excerpt = locale === 'en' ? post.excerptEn : post.excerpt;
-  const publishedDate = new Date(post.publishedAt.seconds * 1000).toLocaleDateString(
+  const publishedDate = new Date((post.publishedAt as { seconds: number; nanoseconds: number }).seconds * 1000).toLocaleDateString(
     locale === 'en' ? 'en-US' : 'fr-FR',
     {
       year: 'numeric',
