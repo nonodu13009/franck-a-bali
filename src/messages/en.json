@@ -1,24 +1,37 @@
 {
-  "HomePage": {
-    "title": "VF Images",
-    "subtitle": "Photography Portfolio",
-    "viewGallery": "View Gallery"
-  },
-  "Navigation": {
+  "nav": {
     "home": "Home",
     "gallery": "Gallery",
     "blog": "Blog",
-    "shop": "Shop"
+    "shop": "Shop",
+    "about": "About"
   },
-  "GalleryIndex": {
-    "title": "Photo Series"
+  "home": {
+    "title": "VF Images",
+    "subtitle": "Photography in Bali"
   },
-  "Blog": {
-    "title": "Journal"
+  "gallery": {
+    "title": "Gallery",
+    "description": "Discover my photographic series",
+    "viewSeries": "View series",
+    "noSeries": "No series available"
   },
-  "Shop": {
+  "blog": {
+    "title": "Blog",
+    "description": "Articles and thoughts on photography",
+    "readMore": "Read more",
+    "noPosts": "No posts available",
+    "publishedOn": "Published on"
+  },
+  "shop": {
     "title": "Shop",
-    "description": "Purchase high-quality prints of my work directly from The Printspace.",
-    "buy": "Buy Print"
+    "description": "Purchase my prints via Printspace",
+    "visitShop": "Visit shop"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back"
   }
 }
+

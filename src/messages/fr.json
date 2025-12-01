@@ -1,24 +1,37 @@
 {
-    "HomePage": {
-        "title": "VF Images",
-        "subtitle": "Portfolio Photographique",
-        "viewGallery": "Voir la Galerie"
-    },
-    "Navigation": {
-        "home": "Accueil",
-        "gallery": "Galerie",
-        "blog": "Blog",
-        "shop": "Boutique"
-    },
-    "GalleryIndex": {
-        "title": "Séries Photo"
-    },
-    "Blog": {
-        "title": "Journal"
-    },
-    "Shop": {
-        "title": "Boutique",
-        "description": "Achetez des tirages de haute qualité de mon travail directement via The Printspace.",
-        "buy": "Acheter le tirage"
-    }
+  "nav": {
+    "home": "Accueil",
+    "gallery": "Galerie",
+    "blog": "Blog",
+    "shop": "Boutique",
+    "about": "À propos"
+  },
+  "home": {
+    "title": "VF Images",
+    "subtitle": "Photographie à Bali"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "description": "Découvrez mes séries photographiques",
+    "viewSeries": "Voir la série",
+    "noSeries": "Aucune série disponible"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Articles et réflexions sur la photographie",
+    "readMore": "Lire la suite",
+    "noPosts": "Aucun article disponible",
+    "publishedOn": "Publié le"
+  },
+  "shop": {
+    "title": "Boutique",
+    "description": "Achetez mes tirages via Printspace",
+    "visitShop": "Visiter la boutique"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "back": "Retour"
+  }
 }
+

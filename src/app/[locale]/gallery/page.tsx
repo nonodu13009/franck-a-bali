@@ -1,33 +1,59 @@
-import { Link } from '@/navigation';
-import { getAllSeries } from '@/lib/images';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import styles from './page.module.css';
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { GalleryGrid } from '@/components/gallery/gallery-grid';
+import { getSeries } from '@/lib/firebase/firestore';
+import { Suspense } from 'react';
 
-export default async function GalleryIndex({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params;
-    const series = getAllSeries();
-    const t = useTranslations('GalleryIndex');
+async function SeriesList({ locale }: { locale: string }) {
+  const series = await getSeries();
 
-    return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>{t('title')}</h1>
-            <div className={styles.grid}>
-                {series.map((s) => (
-                    <Link key={s.id} href={`/gallery/${s.id}`} className={styles.card}>
-                        <div className={styles.imageWrapper}>
-                            <Image
-                                src={s.coverImage}
-                                alt={s.title[locale as 'en' | 'fr']}
-                                fill
-                                className={styles.cover}
-                                style={{ objectFit: 'cover' }}
-                            />
-                        </div>
-                        <h2 className={styles.seriesTitle}>{s.title[locale as 'en' | 'fr']}</h2>
-                    </Link>
-                ))}
-            </div>
-        </div>
-    );
+  return <GalleryGrid series={series} locale={locale} />;
 }
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'gallery' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
+
+export default async function GalleryPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'gallery' });
+
+  return (
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <div className="mb-8 md:mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">{t('title')}</h1>
+        <p className="text-muted-foreground">{t('description')}</p>
+      </div>
+
+      <Suspense
+        fallback={
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[...Array(6)].map((_, i) => (
+              <div
+                key={i}
+                className="aspect-[4/3] bg-muted animate-pulse rounded-sm"
+              />
+            ))}
+          </div>
+        }
+      >
+        <SeriesList locale={locale} />
+      </Suspense>
+    </div>
+  );
+}
+
