@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VF Images - Portfolio Photographique
 
-## Getting Started
+Site portfolio professionnel multilingue (FR/EN) avec e-commerce intégré via The Printspace.
 
-First, run the development server:
+## Fonctionnalités
 
+- **Galeries Photo** : Organisation par séries (Travel, Street, Noir & Blanc).
+- **Blog** : Articles en Markdown pour raconter les histoires derrière les photos.
+- **E-commerce** : Intégration pour la vente de tirages.
+- **Internationalisation** : Support complet Français/Anglais.
+- **Performance** : Optimisation des images et SEO.
+
+## Installation
+
+1. Cloner le dépôt :
+   ```bash
+   git clone https://github.com/nonodu13009/franckbali.git
+   cd franckbali
+   ```
+
+2. Installer les dépendances :
+   ```bash
+   npm install
+   ```
+
+3. Lancer le serveur de développement :
+   ```bash
+   npm run dev
+   ```
+
+## Gestion des Contenus
+
+### Ajouter une Série Photo
+Modifier le fichier `src/content/galleries.json` pour ajouter une nouvelle entrée dans le tableau `series`.
+
+### Ajouter un Article de Blog
+Créer un fichier Markdown dans `src/content/blog` avec le format `slug-lang.md` (ex: `mon-voyage-fr.md`).
+
+### Images
+Placer les images dans le dossier `public/images`.
+
+## Déploiement
+
+Le site est prêt à être déployé sur Vercel. Connectez simplement votre dépôt GitHub à Vercel.
+
+## Configuration Git
+
+Si ce n'est pas déjà fait, configurez le dépôt distant :
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git remote add origin https://github.com/nonodu13009/franckbali.git
+git branch -M main
+git push -u origin main
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -1,0 +1,24 @@
+{
+    "HomePage": {
+        "title": "VF Images",
+        "subtitle": "Portfolio Photographique",
+        "viewGallery": "Voir la Galerie"
+    },
+    "Navigation": {
+        "home": "Accueil",
+        "gallery": "Galerie",
+        "blog": "Blog",
+        "shop": "Boutique"
+    },
+    "GalleryIndex": {
+        "title": "Séries Photo"
+    },
+    "Blog": {
+        "title": "Journal"
+    },
+    "Shop": {
+        "title": "Boutique",
+        "description": "Achetez des tirages de haute qualité de mon travail directement via The Printspace.",
+        "buy": "Acheter le tirage"
+    }
+}
