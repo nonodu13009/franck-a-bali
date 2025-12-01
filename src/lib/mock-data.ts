@@ -52,7 +52,7 @@ export const mockSeries: Series[] = [
     titleEn: 'Traditional Architecture',
     description: 'Temples, palais et architecture traditionnelle balinaise.',
     descriptionEn: 'Temples, palaces and traditional Balinese architecture.',
-    coverImage: `${UNSPLASH_BASE}/photo-1515542628406-3b69c0d4c3a0?w=800&q=80`,
+    coverImage: `${UNSPLASH_BASE}/photo-1547036967-23d11aacaee0?w=800&q=80`,
     createdAt: createMockTimestamp(new Date('2024-03-10')),
     order: 3,
     slug: 'architecture-traditionnelle',
@@ -169,7 +169,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-8',
     seriesId: 'series-3',
-    url: `${UNSPLASH_BASE}/photo-1515542628406-3b69c0d4c3a0?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1558618666-fcd25c85cd64?w=1200&q=80`,
     alt: 'Temple balinais',
     altEn: 'Balinese temple',
     width: 1920,
@@ -189,7 +189,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-10',
     seriesId: 'series-3',
-    url: `${UNSPLASH_BASE}/photo-1558618666-fcd25c85cd64?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1547036967-23d11aacaee0?w=1200&q=80`,
     alt: 'Détails architecturaux',
     altEn: 'Architectural details',
     width: 1920,

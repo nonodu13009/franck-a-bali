@@ -12,8 +12,12 @@ interface ImageCardProps {
 
 export function ImageCard({ series, locale }: ImageCardProps) {
   const [imageError, setImageError] = useState(false);
+  const [imageSrc, setImageSrc] = useState(series.coverImage || '');
   const title = locale === 'en' ? series.titleEn : series.title;
   const description = locale === 'en' ? series.descriptionEn : series.description;
+
+  // Fallback image si l'image principale ne charge pas
+  const fallbackImage = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80';
 
   return (
     <Link
@@ -21,14 +25,24 @@ export function ImageCard({ series, locale }: ImageCardProps) {
       className="group relative block overflow-hidden rounded-sm"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
-        {series.coverImage && !imageError ? (
+        {imageSrc && !imageError ? (
           <Image
-            src={series.coverImage}
+            src={imageSrc}
             alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            onError={() => setImageError(true)}
+            onError={() => {
+              console.warn(`Failed to load image: ${imageSrc}`);
+              // Essayer l'image de fallback si ce n'est pas déjà celle-ci
+              if (imageSrc !== fallbackImage) {
+                setImageSrc(fallbackImage);
+                setImageError(false);
+              } else {
+                setImageError(true);
+              }
+            }}
+            unoptimized={imageSrc?.includes('unsplash.com')}
           />
         ) : (
           <div className="flex items-center justify-center h-full bg-muted">
