@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   keywords: ['photographie', 'Bali', 'portfolio', 'art', 'tirages'],
   authors: [{ name: 'VF Images' }],
   creator: 'VF Images',
+  icons: {
+    icon: [
+      { url: '/images/logoNoir.png', sizes: '2048x2048', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/logoNoir.png', sizes: '2048x2048', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
