@@ -58,6 +58,14 @@ export function HeroSlider({ images, locale }: HeroSliderProps) {
     }
   };
 
+  // Précharger la prochaine image
+  useEffect(() => {
+    if (images.length > 1) {
+      const nextImage = new window.Image();
+      nextImage.src = images[(currentIndex + 1) % images.length].url;
+    }
+  }, [currentIndex, images]);
+
   if (images.length === 0) {
     return null;
   }
@@ -77,9 +85,11 @@ export function HeroSlider({ images, locale }: HeroSliderProps) {
         src={currentImage.url}
         alt={alt}
         fill
-        priority
+        priority={currentIndex === 0}
+        loading={currentIndex === 0 ? 'eager' : 'lazy'}
         className="object-cover"
         sizes="100vw"
+        quality={85}
       />
       
       {images.length > 1 && (

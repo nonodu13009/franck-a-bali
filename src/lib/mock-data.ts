@@ -30,7 +30,7 @@ export const mockSeries: Series[] = [
     titleEn: 'Bali Landscapes',
     description: 'Une exploration visuelle des paysages époustouflants de Bali, des rizières en terrasses aux plages de sable noir.',
     descriptionEn: 'A visual exploration of Bali\'s stunning landscapes, from terraced rice fields to black sand beaches.',
-    coverImage: `${UNSPLASH_BASE}/photo-1506905925346-21bda4d32df4?w=800&q=80`,
+    coverImage: `${UNSPLASH_BASE}/photo-1506905925346-21bda4d32df4?w=400&q=75&auto=format&fit=crop`,
     createdAt: createMockTimestamp(new Date('2024-01-15')),
     order: 1,
     slug: 'paysages-bali',
@@ -41,7 +41,7 @@ export const mockSeries: Series[] = [
     titleEn: 'Local Portraits',
     description: 'Rencontres humaines et portraits authentiques des habitants de Bali.',
     descriptionEn: 'Human encounters and authentic portraits of Bali\'s inhabitants.',
-    coverImage: `${UNSPLASH_BASE}/photo-1507003211169-0a1dd7228f2d?w=800&q=80`,
+    coverImage: `${UNSPLASH_BASE}/photo-1507003211169-0a1dd7228f2d?w=400&q=75&auto=format&fit=crop`,
     createdAt: createMockTimestamp(new Date('2024-02-20')),
     order: 2,
     slug: 'portraits-locaux',
@@ -63,7 +63,7 @@ export const mockSeries: Series[] = [
     titleEn: 'Night Life',
     description: 'Lumières et atmosphère de la vie nocturne balinaise.',
     descriptionEn: 'Lights and atmosphere of Balinese nightlife.',
-    coverImage: `${UNSPLASH_BASE}/photo-1514525253161-7a46d19cd819?w=800&q=80`,
+    coverImage: `${UNSPLASH_BASE}/photo-1514525253161-7a46d19cd819?w=400&q=75&auto=format&fit=crop`,
     createdAt: createMockTimestamp(new Date('2024-04-05')),
     order: 4,
     slug: 'vie-nocturne',
@@ -74,7 +74,7 @@ export const mockSeries: Series[] = [
     titleEn: 'Ceremonies and Traditions',
     description: 'Cérémonies religieuses et traditions culturelles balinaises.',
     descriptionEn: 'Religious ceremonies and Balinese cultural traditions.',
-    coverImage: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=800&q=80`,
+    coverImage: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=400&q=75&auto=format&fit=crop`,
     createdAt: createMockTimestamp(new Date('2024-05-12')),
     order: 5,
     slug: 'ceremonies-traditions',
@@ -85,7 +85,7 @@ export const mockSeries: Series[] = [
     titleEn: 'Nature and Wildlife',
     description: 'La biodiversité et la faune exceptionnelle de Bali.',
     descriptionEn: 'Bali\'s exceptional biodiversity and wildlife.',
-    coverImage: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=800&q=80`,
+    coverImage: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=400&q=75&auto=format&fit=crop`,
     createdAt: createMockTimestamp(new Date('2024-06-18')),
     order: 6,
     slug: 'nature-faune',
@@ -97,7 +97,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-1',
     seriesId: 'series-1',
-    url: `${UNSPLASH_BASE}/photo-1506905925346-21bda4d32df4?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop`,
     alt: 'Rizières en terrasses à Bali',
     altEn: 'Terraced rice fields in Bali',
     width: 1920,
@@ -107,7 +107,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-2',
     seriesId: 'series-1',
-    url: `${UNSPLASH_BASE}/photo-1518548419970-58e3b4079ab2?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1518548419970-58e3b4079ab2?w=800&q=80&auto=format&fit=crop`,
     alt: 'Plage de sable noir à Bali',
     altEn: 'Black sand beach in Bali',
     width: 1920,
@@ -117,7 +117,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-3',
     seriesId: 'series-1',
-    url: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=800&q=80&auto=format&fit=crop`,
     alt: 'Forêt tropicale balinaise',
     altEn: 'Balinese tropical forest',
     width: 1920,
@@ -127,7 +127,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-4',
     seriesId: 'series-1',
-    url: `${UNSPLASH_BASE}/photo-1559827260-dc66d52bef19?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1559827260-dc66d52bef19?w=800&q=80&auto=format&fit=crop`,
     alt: 'Cascade à Bali',
     altEn: 'Waterfall in Bali',
     width: 1920,
@@ -138,7 +138,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-5',
     seriesId: 'series-2',
-    url: `${UNSPLASH_BASE}/photo-1507003211169-0a1dd7228f2d?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1507003211169-0a1dd7228f2d?w=800&q=80&auto=format&fit=crop`,
     alt: 'Portrait d\'un artisan balinais',
     altEn: 'Portrait of a Balinese artisan',
     width: 1280,
@@ -148,7 +148,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-6',
     seriesId: 'series-2',
-    url: `${UNSPLASH_BASE}/photo-1494790108377-be9c29b29330?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1494790108377-be9c29b29330?w=800&q=80&auto=format&fit=crop`,
     alt: 'Portrait d\'une danseuse traditionnelle',
     altEn: 'Portrait of a traditional dancer',
     width: 1280,
@@ -158,7 +158,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-7',
     seriesId: 'series-2',
-    url: `${UNSPLASH_BASE}/photo-1500648767791-00dcc994a43e?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1500648767791-00dcc994a43e?w=800&q=80&auto=format&fit=crop`,
     alt: 'Portrait d\'un pêcheur',
     altEn: 'Portrait of a fisherman',
     width: 1920,
@@ -169,7 +169,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-8',
     seriesId: 'series-3',
-    url: `${UNSPLASH_BASE}/photo-1558618666-fcd25c85cd64?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop`,
     alt: 'Temple balinais',
     altEn: 'Balinese temple',
     width: 1920,
@@ -179,7 +179,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-9',
     seriesId: 'series-3',
-    url: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop`,
     alt: 'Porte d\'entrée traditionnelle',
     altEn: 'Traditional entrance gate',
     width: 1920,
@@ -189,7 +189,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-10',
     seriesId: 'series-3',
-    url: `${UNSPLASH_BASE}/photo-1547036967-23d11aacaee0?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1547036967-23d11aacaee0?w=800&q=80&auto=format&fit=crop`,
     alt: 'Détails architecturaux',
     altEn: 'Architectural details',
     width: 1920,
@@ -200,7 +200,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-11',
     seriesId: 'series-4',
-    url: `${UNSPLASH_BASE}/photo-1514525253161-7a46d19cd819?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1514525253161-7a46d19cd819?w=800&q=80&auto=format&fit=crop`,
     alt: 'Marché de nuit',
     altEn: 'Night market',
     width: 1920,
@@ -210,7 +210,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-12',
     seriesId: 'series-4',
-    url: `${UNSPLASH_BASE}/photo-1519681393784-d120267933ba?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1519681393784-d120267933ba?w=800&q=80&auto=format&fit=crop`,
     alt: 'Lumières de la ville',
     altEn: 'City lights',
     width: 1920,
@@ -221,7 +221,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-13',
     seriesId: 'series-5',
-    url: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop`,
     alt: 'Cérémonie traditionnelle',
     altEn: 'Traditional ceremony',
     width: 1920,
@@ -231,7 +231,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-14',
     seriesId: 'series-5',
-    url: `${UNSPLASH_BASE}/photo-1558618666-fcd25c85cd64?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop`,
     alt: 'Offrandes balinaises',
     altEn: 'Balinese offerings',
     width: 1920,
@@ -252,7 +252,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-16',
     seriesId: 'series-6',
-    url: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=800&q=80&auto=format&fit=crop`,
     alt: 'Forêt tropicale',
     altEn: 'Tropical forest',
     width: 1920,
@@ -262,7 +262,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-17',
     seriesId: 'series-6',
-    url: `${UNSPLASH_BASE}/photo-1559827260-dc66d52bef19?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1559827260-dc66d52bef19?w=800&q=80&auto=format&fit=crop`,
     alt: 'Cascade naturelle',
     altEn: 'Natural waterfall',
     width: 1920,
@@ -272,7 +272,7 @@ export const mockImages: Image[] = [
   {
     id: 'img-18',
     seriesId: 'series-6',
-    url: `${UNSPLASH_BASE}/photo-1518548419970-58e3b4079ab2?w=1200&q=80`,
+    url: `${UNSPLASH_BASE}/photo-1518548419970-58e3b4079ab2?w=800&q=80&auto=format&fit=crop`,
     alt: 'Plage sauvage',
     altEn: 'Wild beach',
     width: 1920,
@@ -313,7 +313,7 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Whether you're a fan of landscapes, portraits, or architecture, Bali offers infinite photographic opportunities.</p>
     `,
-    featuredImage: `${UNSPLASH_BASE}/photo-1506905925346-21bda4d32df4?w=1200&q=80`,
+    featuredImage: `${UNSPLASH_BASE}/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop`,
     publishedAt: createMockTimestamp(new Date('2024-01-20')),
     author: 'VF Images',
     excerpt: 'Une exploration photographique de l\'île de Bali, de ses paysages à sa culture.',
@@ -344,7 +344,7 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>Human Encounters</h2>
       <p>Portrait photography in Bali requires respect and cultural sensitivity. Take time to create a connection with your subjects.</p>
     `,
-    featuredImage: `${UNSPLASH_BASE}/photo-1507003211169-0a1dd7228f2d?w=1200&q=80`,
+    featuredImage: `${UNSPLASH_BASE}/photo-1507003211169-0a1dd7228f2d?w=800&q=80&auto=format&fit=crop`,
     publishedAt: createMockTimestamp(new Date('2024-02-15')),
     author: 'VF Images',
     excerpt: 'Conseils et techniques pour capturer la beauté de Bali.',

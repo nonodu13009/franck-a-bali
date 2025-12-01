@@ -58,6 +58,8 @@ export function SeriesLayout({ series, images, locale }: SeriesLayoutProps) {
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
+                quality={80}
               />
             </button>
           );
@@ -76,6 +78,8 @@ export function SeriesLayout({ series, images, locale }: SeriesLayoutProps) {
                   fill
                   className="object-contain"
                   sizes="100vw"
+                  quality={90}
+                  priority
                 />
                 <Dialog.Close className="absolute top-4 right-4 p-2 bg-background/80 rounded-sm hover:bg-background transition-colors">
                   <span className="sr-only">Close</span>
