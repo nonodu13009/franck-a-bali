@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { LanguageSwitcher } from './language-switcher';
-import { Logo } from './theme-toggle';
+import { AdaptiveLogo } from './adaptive-logo';
 import { cn } from '@/lib/utils';
 
 export function Header() {
@@ -24,7 +24,7 @@ export function Header() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href={`/${locale}`} className="flex items-center">
-            <Logo className="h-8 w-auto" />
+            <AdaptiveLogo className="h-8 w-auto" />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">

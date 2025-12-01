@@ -67,6 +67,7 @@ export function HeroSlider({ images, locale }: HeroSliderProps) {
 
   return (
     <div
+      data-hero-section
       className="relative w-full h-screen overflow-hidden"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
