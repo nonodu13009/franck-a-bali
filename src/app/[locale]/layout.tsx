@@ -2,8 +2,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/middleware';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
