@@ -378,7 +378,7 @@ export default function DomeGallery({
         }
         if (last) {
           draggingRef.current = false;
-          let [vMagX, vMagY] = velocity;
+          const [vMagX, vMagY] = velocity;
           const [dirX, dirY] = direction;
           let vx = vMagX * dirX;
           let vy = vMagY * dirY;
@@ -680,6 +680,7 @@ export default function DomeGallery({
                   onClick={onTileClick}
                   onPointerUp={onTilePointerUp}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={it.src} draggable={false} alt={it.alt} />
                 </div>
               </div>

@@ -79,13 +79,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
+export default async function HomePage() {
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0 }}>
       <DomeGallery 
