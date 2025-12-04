@@ -4,7 +4,7 @@
     "gallery": "Galerie",
     "blog": "Blog",
     "shop": "Boutique",
-    "about": "À propos"
+    "about": "Franck"
   },
   "home": {
     "title": "VF Images",
@@ -32,6 +32,20 @@
     "loading": "Chargement...",
     "error": "Une erreur est survenue",
     "back": "Retour"
+  },
+  "about": {
+    "title": "À la recherche de Franck",
+    "subtitle": "Un voyage à travers l'œil et l'âme d'un photographe",
+    "section1": "J'ai longtemps parcouru le monde un appareil photo à la main — d'abord en simple témoin, puis en véritable chercheur d'instants. Le voyage a façonné ma manière de voir : chaque lieu, chaque visage, chaque silence porte une histoire qui ne demande qu'à être révélée.",
+    "section2": "Au fil du chemin, j'ai compris que mes images étaient plus que des souvenirs. Elles sont devenues mon langage, mon espace de liberté. Cette évidence m'a finalement poussé à quitter la France pour suivre mes rêves, vivre ailleurs, et faire de la photographie — et de la vidéo — non plus un simple compagnon, mais une manière d'exister pleinement.",
+    "section3": "Je suis animé par une passion profonde pour les rencontres et les histoires qu'elles font naître. Explorer un lieu, échanger un sourire, observer une scène ordinaire sous une lumière particulière : c'est dans ces moments simples que commence mon travail.",
+    "section4": "À Bali ou au gré des routes et des lumières que je poursuis, je capture des moments vrais : un regard au détour d'une rue, une lumière qui révèle un paysage, un geste discret qui devient essentiel. Mon univers se situe à la croisée du voyage, du portrait et de la street photography, en couleurs comme en noir et blanc, avec une esthétique épurée, sensible et authentique.",
+    "section5": "VF Images est le reflet de ce parcours — une sélection de scènes rencontrées, vécues, ressenties. J'y propose des images pensées pour durer, accompagnées de tirages premium, pour que ces instants saisis puissent trouver un nouvel écho sur les murs de ceux qu'ils touchent.",
+    "section6": "Des fragments de vie, destinés à habiter des intérieurs qui aiment le calme, la profondeur et la vérité. Des images prêtes à être transmises.",
+    "ctaTitle": "Découvrez mon univers",
+    "ctaSubtitle": "Explorez mes séries photographiques et trouvez l'image qui résonnera chez vous",
+    "ctaGallery": "Voir la galerie",
+    "ctaShop": "Acheter un tirage"
   }
 }
 
