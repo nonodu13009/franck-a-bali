@@ -1,6 +1,9 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { ParallaxHero } from '@/components/about/parallax-hero';
+import { TextImageSection } from '@/components/about/text-image-section';
+import { FullQuote } from '@/components/about/full-quote';
+import { StatsSection } from '@/components/about/stats-section';
 
 export async function generateMetadata({
   params,
@@ -50,121 +53,152 @@ export default async function AboutPage({
       imageAlt: 'Human connections',
       position: 'right',
     },
+  ];
+
+  const stats = [
     {
-      text: t('section4'),
-      image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop',
-      imageAlt: 'Bali landscapes',
-      position: 'left',
+      value: 500,
+      suffix: '+',
+      label: 'Photos',
+      icon: (
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 mx-auto">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
     },
     {
-      text: t('section5'),
-      image: 'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=1200&q=80&auto=format&fit=crop',
-      imageAlt: 'VF Images gallery',
-      position: 'right',
+      value: 25,
+      label: 'Pays',
+      icon: (
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 mx-auto">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
     },
     {
-      text: t('section6'),
-      image: 'https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=1200&q=80&auto=format&fit=crop',
-      imageAlt: 'Life fragments',
-      position: 'left',
+      value: 4.9,
+      label: 'Rating',
+      icon: (
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 mx-auto">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+        </svg>
+      ),
+    },
+    {
+      value: 5,
+      label: 'Années à Bali',
+      icon: (
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 mx-auto">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      ),
     },
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=1920&q=80&auto=format&fit=crop"
-            alt="Franck - Photographer"
-            fill
-            className="object-cover opacity-40"
+      {/* Hero Section avec Parallax */}
+      <ParallaxHero
+        title={t('title')}
+        subtitle={t('subtitle')}
+        imageUrl="https://images.unsplash.com/photo-1555217851-6141535bd771?w=1920&q=80&auto=format&fit=crop"
+      />
+
+      {/* Story Sections avec espacement variable */}
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section 1 - Plus d'espace après hero */}
+        <div className="pt-32 pb-20">
+          <TextImageSection
+            text={sections[0].text}
+            imageUrl={sections[0].image}
+            imageAlt={sections[0].imageAlt}
+            imagePosition={sections[0].position}
             priority
-            sizes="100vw"
           />
         </div>
-        <div className="relative z-10 text-center px-6">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            {t('title')}
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-delay">
-            {t('subtitle')}
-          </p>
-        </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg
-            className="w-6 h-6 text-muted-foreground"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
-      </section>
 
-      {/* Story Sections */}
-      <div className="max-w-7xl mx-auto px-6 py-20 space-y-32">
-        {sections.map((section, index) => (
-          <section
-            key={index}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-              section.position === 'left' ? 'lg:flex-row-reverse' : ''
-            }`}
-          >
-            <div
-              className={`space-y-6 opacity-0 animate-fade-in-up ${
-                section.position === 'right' ? 'lg:order-1' : 'lg:order-2'
-              }`}
-              style={{
-                animationDelay: '0.2s',
-                animationFillMode: 'forwards',
-              }}
-            >
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/90">
-                {section.text}
-              </p>
-            </div>
-            <div
-              className={`relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl opacity-0 animate-fade-in-up ${
-                section.position === 'right' ? 'lg:order-2' : 'lg:order-1'
-              }`}
-              style={{
-                animationDelay: '0.4s',
-                animationFillMode: 'forwards',
-              }}
-            >
-              <Image
-                src={section.image}
-                alt={section.imageAlt}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </section>
-        ))}
+        {/* Section 2 */}
+        <div className="py-20">
+          <TextImageSection
+            text={sections[1].text}
+            imageUrl={sections[1].image}
+            imageAlt={sections[1].imageAlt}
+            imagePosition={sections[1].position}
+          />
+        </div>
+
+        {/* Section 3 */}
+        <div className="py-20">
+          <TextImageSection
+            text={sections[2].text}
+            imageUrl={sections[2].image}
+            imageAlt={sections[2].imageAlt}
+            imagePosition={sections[2].position}
+          />
+        </div>
       </div>
 
-      {/* Final CTA */}
-      <section className="py-20 text-center">
-        <div className="max-w-3xl mx-auto px-6 space-y-8">
-          <h2 className="text-3xl md:text-5xl font-bold">{t('ctaTitle')}</h2>
-          <p className="text-lg text-muted-foreground">{t('ctaSubtitle')}</p>
+      {/* Quote Section - Fullwidth */}
+      <FullQuote
+        quote="Capturer l'instant où la lumière révèle l'invisible"
+        author="Franck"
+      />
+
+      {/* Stats Section */}
+      <StatsSection stats={stats} />
+
+      {/* Sections supplémentaires */}
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="py-20">
+          <TextImageSection
+            text={t('section4')}
+            imageUrl="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop"
+            imageAlt="Bali landscapes"
+            imagePosition="left"
+          />
+        </div>
+
+        <div className="py-20">
+          <TextImageSection
+            text={t('section5')}
+            imageUrl="https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=1200&q=80&auto=format&fit=crop"
+            imageAlt="VF Images gallery"
+            imagePosition="right"
+          />
+        </div>
+
+        <div className="py-20 pb-32">
+          <TextImageSection
+            text={t('section6')}
+            imageUrl="https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=1200&q=80&auto=format&fit=crop"
+            imageAlt="Life fragments"
+            imagePosition="left"
+          />
+        </div>
+      </div>
+
+      {/* Final CTA avec gradient tropical */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-ocean-light to-accent opacity-95" />
+        
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center space-y-8">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
+            {t('ctaTitle')}
+          </h2>
+          <p className="text-xl md:text-2xl text-primary-foreground/90">
+            {t('ctaSubtitle')}
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <a
               href={`/${locale}/gallery`}
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+              className="px-8 py-4 bg-accent-warm text-white rounded-full font-medium hover:bg-accent hover:scale-105 transition-all shadow-lg"
             >
               {t('ctaGallery')}
             </a>
             <a
               href={`/${locale}/shop`}
-              className="px-8 py-4 border border-border rounded-full font-medium hover:bg-muted transition-colors"
+              className="px-8 py-4 border-2 border-primary-foreground text-primary-foreground rounded-full font-medium hover:bg-primary-foreground hover:text-primary transition-all"
             >
               {t('ctaShop')}
             </a>
@@ -174,4 +208,3 @@ export default async function AboutPage({
     </div>
   );
 }
-
