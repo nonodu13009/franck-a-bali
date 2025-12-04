@@ -34,7 +34,7 @@ style={{
         }`}
       >
         {/* Guillemet ouvrant décoratif */}
-        <div className="text-sand text-6xl md:text-8xl font-serif mb-4 opacity-50">"</div>
+        <div className="text-sand text-6xl md:text-8xl font-serif mb-4 opacity-50">&ldquo;</div>
         
         <blockquote className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-primary-foreground leading-relaxed italic mb-8">
           {quote}
