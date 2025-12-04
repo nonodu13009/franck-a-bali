@@ -7,7 +7,7 @@ export function CustomCursor() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | undefined>(undefined);
   const cursorPosRef = useRef({ x: 0, y: 0 });
 
   // Fonction pour vérifier si un élément est interactif
