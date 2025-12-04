@@ -19,8 +19,8 @@ export function useCounter(options: CounterOptions) {
 
   const [count, setCount] = useState(start);
   const [hasStarted, setHasStarted] = useState(false);
-  const requestRef = useRef<number>();
-  const startTimeRef = useRef<number>();
+  const requestRef = useRef<number | undefined>(undefined);
+  const startTimeRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     if (!enabled || hasStarted) return;
