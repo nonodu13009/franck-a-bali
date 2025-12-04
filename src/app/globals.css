@@ -4,15 +4,39 @@
 
 @layer base {
   :root {
-    --background: #0c0c0c;
-    --foreground: #ffffff;
-    --muted: #1a1a1a;
-    --muted-foreground: #a0a0a0;
-    --border: #2a2a2a;
-    --primary: #ffffff;
-    --primary-foreground: #0c0c0c;
-    --secondary: #1a1a1a;
-    --secondary-foreground: #ffffff;
+    /* Palette Balinaise - Tons Chauds Tropicaux */
+    --background: #F8F3E6;          /* Crème naturelle */
+    --foreground: #2B2B2B;          /* Noir chaud */
+    
+    /* Couleurs Primaires */
+    --primary: #1565A0;             /* Bleu océan */
+    --primary-dark: #0A4C6B;        /* Bleu profond */
+    --primary-foreground: #FEFAE0;  /* Blanc chaud */
+    
+    /* Couleurs Secondaires */
+    --secondary: #2D5A4D;           /* Vert jungle */
+    --secondary-light: #3D6B5D;     /* Vert médium */
+    --secondary-foreground: #FEFAE0;
+    
+    /* Accents Tropicaux */
+    --accent: #52B788;              /* Vert palmier */
+    --accent-light: #74C69D;        /* Végétation luxuriante */
+    --accent-warm: #F4A261;         /* Frangipani orangé */
+    --accent-pink: #D84A6B;         /* Hibiscus rose */
+    
+    /* Terre et Sable */
+    --sand: #C9A675;                /* Sable doré */
+    --sand-dark: #A68B5B;           /* Terre balinaise */
+    --bamboo: #8B7355;              /* Bambou séché */
+    
+    /* Neutrals */
+    --muted: #E5DCC5;               /* Beige sable */
+    --muted-foreground: #6B5D4F;    /* Brun doux */
+    --border: rgba(45, 90, 77, 0.2); /* Vert jungle transparent */
+    
+    /* Couleurs spécifiques curseur */
+    --cursor-dot: #1A3A2E;          /* Vert jungle profond */
+    --cursor-circle: #52B788;        /* Vert palmier */
   }
 
   * {
@@ -36,7 +60,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Style Tropical */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -47,12 +71,13 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--muted);
+  background: var(--accent);
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
+  background: var(--secondary);
 }
 
 /* Animations */
@@ -132,7 +157,7 @@ html {
   position: fixed;
   width: 8px;
   height: 8px;
-  background-color: var(--foreground);
+  background-color: var(--cursor-dot);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -144,13 +169,13 @@ html {
   position: fixed;
   width: 40px;
   height: 40px;
-  border: 2px solid var(--foreground);
+  border: 2px solid var(--cursor-circle);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease, opacity 0.3s ease;
-  opacity: 0.5;
+  transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  opacity: 0.6;
   will-change: transform, width, height;
 }
 
@@ -158,7 +183,8 @@ html {
   width: 60px;
   height: 60px;
   border-width: 2px;
-  opacity: 0.8;
-  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-warm);
+  opacity: 0.9;
+  background-color: rgba(82, 183, 136, 0.1);
 }
 
