@@ -24,7 +24,7 @@ export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
           willChange: 'transform',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-jungle/80 via-jungle/50 to-ocean/70 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 via-secondary/50 to-primary-dark/70 z-10" />
         <Image
           src={imageUrl}
           alt="Hero Background"

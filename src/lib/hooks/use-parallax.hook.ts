@@ -17,7 +17,7 @@ export function useParallax(options: ParallaxOptions = {}) {
 
   const [offset, setOffset] = useState(0);
   const elementRef = useRef<HTMLElement | null>(null);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     if (disabled) return;
