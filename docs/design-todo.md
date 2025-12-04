@@ -86,6 +86,61 @@
   - Optimiser pour mobile (réduction qualité/taille)
   - Outils: Sharp ou next-image-export-optimizer
 
+### 1.5 Palette de Couleurs Balinaise 🌴
+
+- [ ] **Définir les variables CSS tropicales**
+  - Intégrer la palette complète dans `globals.css`
+  - Variables principales: jungle (#1A3A2E), océan (#1565A0), sable (#C9A675)
+  - Variables secondaires: palmier (#52B788), frangipani (#F4A261), hibiscus (#D84A6B)
+  - Neutrals chauds: crème (#F8F3E6), beige (#E5DCC5), noir-chaud (#2B2B2B)
+  - Fichier: `src/app/globals.css`
+
+- [ ] **Adapter le thème existant**
+  - Passer du noir pur (#0c0c0c) aux tons chauds tropicaux
+  - Option 1: Mode clair avec crème naturelle (#F8F3E6)
+  - Option 2: Mode sombre jungle (#0A1612) avec accents verts lumineux
+  - Option 3: Toggle clair/sombre avec variations tropicales
+  - Fichiers: `globals.css`, `tailwind.config.ts`
+
+- [ ] **Appliquer les couleurs par composant**
+  - **Curseur**: Adapter au vert palmier (#52B788) au lieu de blanc
+  - **Liens**: Bleu océan (#1565A0) avec hover frangipani (#F4A261)
+  - **Boutons CTA**: Gradient vert tropical avec hover
+  - **Bordures**: Vert jungle transparent rgba(45, 90, 77, 0.2)
+  - **Accents**: Utiliser les couleurs vives à 10-20% max
+  - Fichiers: Tous les composants
+
+- [ ] **Créer les variantes de boutons tropicaux**
+  - Primary: Gradient vert jungle → vert palmier
+  - Secondary: Bleu océan avec border dorée
+  - Accent: Frangipani orangé pour CTA importants
+  - Créer: `button-tropical.tsx` ou classes utilitaires
+
+- [ ] **Backgrounds et textures**
+  - Hero sections: Gradient jungle → océan
+  - Sections About: Tons sable et terre
+  - Footer: Vert jungle profond (#1A3A2E)
+  - Cards: Crème (#FEFAE0) avec border verte subtile
+  - Motifs batik subtils en watermark (opacité 2-5%)
+
+- [ ] **États interactifs avec couleurs**
+  - Hover: Transition vers couleurs plus vives
+  - Focus: Outline vert palmier ou bleu océan
+  - Active: Couleur frangipani
+  - Disabled: Désaturé avec opacité réduite
+
+- [ ] **Mode sombre tropical (optionnel)**
+  - Background: Noir-vert jungle (#0A1612)
+  - Foreground: Blanc chaud (#FEFAE0)
+  - Accents: Vert palmier lumineux (#52B788)
+  - Toggle dans header avec icon soleil/lune stylisé
+
+- [ ] **Tester le contraste et l'accessibilité**
+  - Vérifier WCAG AA sur toutes les combinaisons
+  - Ajuster les couleurs si contraste insuffisant
+  - Tester avec différents types de daltonisme
+  - Outils: axe DevTools, Contrast Checker
+
 ---
 
 ## 🎨 Priorité 2 - Moyen Terme (3-4 semaines)
@@ -547,13 +602,30 @@
 Si temps limité, prioriser ces tâches à fort impact:
 
 1. ✅ Curseur personnalisé (FAIT)
-2. ✅ Son de clic (FAIT)
-3. ⚡ Fade-in au scroll (Impact visuel immédiat)
-4. ⚡ Espacement généreux (Respiration immédiate)
-5. ⚡ Images en WebP (Performance visible)
-6. ⚡ Hover effect sur galerie (Interactivité)
-7. ⚡ Police serif pour titres (Élégance instantanée)
-8. ⚡ Transitions de page (Fluidité perçue)
+2. ✅ Son de clic balinais (FAIT)
+3. 🌴 **Palette de couleurs tropicales** (Impact identitaire MAJEUR)
+4. ⚡ Fade-in au scroll (Impact visuel immédiat)
+5. ⚡ Espacement généreux (Respiration immédiate)
+6. ⚡ Images en WebP (Performance visible)
+7. ⚡ Hover effect sur galerie avec overlay tropical (Interactivité)
+8. ⚡ Police serif pour titres (Élégance instantanée)
+9. ⚡ Transitions de page (Fluidité perçue)
 
-Ces 8 éléments (dont 2 déjà faits) transformeront l'expérience en < 1 semaine de travail.
+### Priorité Absolue: Couleurs Balinaises 🌴
+
+**Pourquoi en 3ème position ?**
+- Crée instantanément l'identité visuelle du site
+- Différencie immédiatement de la concurrence
+- Établit l'ambiance tropicale/Bali dès la première visite
+- Impact visuel fort sans toucher à la structure
+- Peut être fait en 2-3 heures
+
+**Actions minimales pour Quick Win couleurs:**
+1. Remplacer le fond noir (#0c0c0c) par crème tropical (#F8F3E6)
+2. Adapter le texte en noir chaud (#2B2B2B)
+3. Liens en bleu océan (#1565A0)
+4. Curseur en vert palmier (#52B788)
+5. Boutons avec accent frangipani (#F4A261)
+
+Ces 9 éléments (dont 2 déjà faits) transformeront l'expérience en < 1 semaine de travail.
 
