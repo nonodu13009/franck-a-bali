@@ -169,72 +169,24 @@ export function AdaptiveLogo({ className }: AdaptiveLogoProps) {
   return (
     <div
       className={cn(
-        'relative inline-block transition-all duration-500 ease-out',
-        isScrolled ? 'scale-110' : 'scale-100',
-        isHovered && 'scale-115'
+        'relative inline-block transition-all duration-300 ease-out',
+        isHovered && 'scale-105'
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow effect - halo lumineux */}
-      <div
+      {/* Logo simple sans effets */}
+      <Image
+        src={logoType === 'white' ? '/images/logoBlanc.png' : '/images/logoNoir.png'}
+        alt="VF Images"
+        width={180}
+        height={60}
         className={cn(
-          'absolute inset-0 blur-2xl opacity-0 transition-all duration-700',
-          isHovered && 'opacity-40 scale-125',
-          logoType === 'white' ? 'bg-white' : 'bg-black'
+          className,
+          'transition-all duration-300'
         )}
-        style={{
-          transform: 'scale(1.3)',
-          zIndex: -1,
-        }}
+        priority
       />
-      
-      {/* Glow effect - halo moyen */}
-      <div
-        className={cn(
-          'absolute inset-0 blur-lg opacity-0 transition-all duration-500',
-          isHovered && 'opacity-30 scale-115',
-          logoType === 'white' ? 'bg-white' : 'bg-black'
-        )}
-        style={{
-          transform: 'scale(1.2)',
-          zIndex: -1,
-        }}
-      />
-      
-      {/* Logo container avec animation */}
-      <div className="relative overflow-hidden">
-        <Image
-          src={logoType === 'white' ? '/images/logoBlanc.png' : '/images/logoNoir.png'}
-          alt="VF Images"
-          width={180}
-          height={60}
-          className={cn(
-            className,
-            'transition-all duration-500 relative z-10',
-            isHovered && 'brightness-110 drop-shadow-2xl'
-          )}
-          priority
-          style={{
-            filter: isHovered 
-              ? `drop-shadow(0 0 30px ${logoType === 'white' ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)'})` 
-              : 'drop-shadow(0 0 10px rgba(0,0,0,0.3))',
-          }}
-        />
-        
-        {/* Effet de brillance animé (shimmer) */}
-        <div
-          className={cn(
-            'absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent',
-            'transform -skew-x-12 translate-x-[-200%]',
-            'transition-transform duration-1000 ease-in-out',
-            'pointer-events-none z-20'
-          )}
-          style={{
-            animation: 'shimmer 3s infinite',
-          }}
-        />
-      </div>
     </div>
   );
 }

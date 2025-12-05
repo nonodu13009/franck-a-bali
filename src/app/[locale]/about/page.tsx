@@ -49,8 +49,8 @@ export default async function AboutPage({
     },
     {
       text: t('section3'),
-      image: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=1200&q=80&auto=format&fit=crop',
-      imageAlt: 'Human connections',
+      image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop',
+      imageAlt: 'Bali landscapes',
       position: 'right',
     },
   ];
@@ -128,52 +128,13 @@ export default async function AboutPage({
           />
         </div>
 
-        {/* Section 3 */}
-        <div className="py-20">
+        {/* Section 3 - Fusionnée avec section 4 */}
+        <div className="py-20 pb-32">
           <TextImageSection
             text={sections[2].text}
             imageUrl={sections[2].image}
             imageAlt={sections[2].imageAlt}
             imagePosition={sections[2].position}
-          />
-        </div>
-      </div>
-
-      {/* Quote Section - Fullwidth */}
-      <FullQuote
-        quote="Capturer l'instant où la lumière révèle l'invisible"
-        author="Franck"
-      />
-
-      {/* Stats Section */}
-      <StatsSection stats={stats} />
-
-      {/* Sections supplémentaires */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="py-20">
-          <TextImageSection
-            text={t('section4')}
-            imageUrl="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop"
-            imageAlt="Bali landscapes"
-            imagePosition="left"
-          />
-        </div>
-
-        <div className="py-20">
-          <TextImageSection
-            text={t('section5')}
-            imageUrl="https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=1200&q=80&auto=format&fit=crop"
-            imageAlt="VF Images gallery"
-            imagePosition="right"
-          />
-        </div>
-
-        <div className="py-20 pb-32">
-          <TextImageSection
-            text={t('section6')}
-            imageUrl="https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=1200&q=80&auto=format&fit=crop"
-            imageAlt="Life fragments"
-            imagePosition="left"
           />
         </div>
       </div>

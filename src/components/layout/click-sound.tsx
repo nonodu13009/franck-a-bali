@@ -8,7 +8,7 @@ export function ClickSound() {
   useEffect(() => {
     // Créer l'élément audio
     const audio = new Audio('/sounds/bali-gong.mp3');
-    audio.volume = 0.5; // Volume moyen
+    audio.volume = 0.15; // Volume très réduit pour un son plus subtil
     audio.preload = 'auto';
     audioRef.current = audio;
 

@@ -4,7 +4,7 @@
     "gallery": "Gallery",
     "blog": "Blog",
     "shop": "Shop",
-    "about": "Franck"
+    "about": "About"
   },
   "home": {
     "title": "VF Images",
@@ -18,7 +18,7 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Articles and thoughts on photography",
+    "description": "Follow my adventures and discover my latest creations on Instagram",
     "readMore": "Read more",
     "noPosts": "No posts available",
     "publishedOn": "Published on"
@@ -38,10 +38,7 @@
     "subtitle": "A journey through the eye and soul of a photographer",
     "section1": "I have long traveled the world with a camera in hand — first as a simple witness, then as a true seeker of moments. Travel has shaped my way of seeing: every place, every face, every silence carries a story waiting to be revealed.",
     "section2": "Along the way, I understood that my images were more than memories. They became my language, my space of freedom. This realization ultimately led me to leave France to follow my dreams, live elsewhere, and make photography — and videography — no longer just a companion, but a way to fully exist.",
-    "section3": "I am driven by a deep passion for encounters and the stories they give birth to. Exploring a place, exchanging a smile, observing an ordinary scene under particular light: it is in these simple moments that my work begins.",
-    "section4": "In Bali or along the roads and lights I pursue, I capture true moments: a glance on a street corner, a light that reveals a landscape, a discreet gesture that becomes essential. My universe is at the crossroads of travel, portrait, and street photography, in color as well as black and white, with a refined, sensitive, and authentic aesthetic.",
-    "section5": "VF Images is the reflection of this journey — a selection of scenes encountered, lived, felt. I offer images designed to last, accompanied by premium prints, so that these captured moments can find a new echo on the walls of those they touch.",
-    "section6": "Fragments of life, destined to inhabit interiors that love calm, depth, and truth. Images ready to be passed on.",
+    "section3": "In Bali or along the roads and lights I pursue, I capture true moments: a glance on a street corner, a light that reveals a landscape, a discreet gesture that becomes essential. My universe is at the crossroads of travel, portrait, and street photography, in color as well as black and white, with a refined, sensitive, and authentic aesthetic. VF Images is the reflection of this journey — a selection of scenes encountered, lived, felt. Fragments of life, destined to inhabit interiors that love calm, depth, and truth.",
     "ctaTitle": "Discover my universe",
     "ctaSubtitle": "Explore my photographic series and find the image that will resonate with you",
     "ctaGallery": "View gallery",

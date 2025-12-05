@@ -1,28 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { BlogCard } from '@/components/blog/blog-card';
-import { getBlogPosts } from '@/lib/firebase/firestore';
+import { InstagramFeed } from '@/components/blog/instagram-feed';
 import { Suspense } from 'react';
-
-async function BlogPostsList({ locale }: { locale: string }) {
-  const posts = await getBlogPosts();
-
-  if (posts.length === 0) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-muted-foreground">Aucun article disponible</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {posts.map((post) => (
-        <BlogCard key={post.id} post={post} locale={locale} />
-      ))}
-    </div>
-  );
-}
 
 export async function generateMetadata({
   params,
@@ -59,13 +38,13 @@ export default async function BlogPage({
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className="aspect-video bg-muted animate-pulse rounded-sm"
+                className="aspect-square bg-muted animate-pulse rounded-sm"
               />
             ))}
           </div>
         }
       >
-        <BlogPostsList locale={locale} />
+        <InstagramFeed locale={locale} />
       </Suspense>
     </div>
   );

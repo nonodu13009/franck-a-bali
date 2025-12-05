@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    /* Palette Balinaise - Tons Chauds Tropicaux */
-    --background: #F8F3E6;          /* Crème naturelle */
-    --foreground: #2B2B2B;          /* Noir chaud */
+    /* Palette Balinaise - Thème Sombre */
+    --background: #0A0A0A;          /* Noir profond */
+    --foreground: #F8F3E6;          /* Crème naturelle pour le texte */
     
     /* Couleurs Primaires */
     --primary: #1565A0;             /* Bleu océan */
@@ -29,13 +29,13 @@
     --sand-dark: #A68B5B;           /* Terre balinaise */
     --bamboo: #8B7355;              /* Bambou séché */
     
-    /* Neutrals */
-    --muted: #E5DCC5;               /* Beige sable */
-    --muted-foreground: #6B5D4F;    /* Brun doux */
-    --border: rgba(45, 90, 77, 0.2); /* Vert jungle transparent */
+    /* Neutrals - Adaptés pour fond noir */
+    --muted: #1A1A1A;               /* Gris très sombre */
+    --muted-foreground: #B8B8B8;    /* Gris clair pour texte secondaire */
+    --border: rgba(248, 243, 230, 0.1); /* Bordure claire subtile */
     
     /* Couleurs spécifiques curseur */
-    --cursor-dot: #1A3A2E;          /* Vert jungle profond */
+    --cursor-dot: #F8F3E6;          /* Point clair sur fond noir */
     --cursor-circle: #52B788;        /* Vert palmier */
   }
 
