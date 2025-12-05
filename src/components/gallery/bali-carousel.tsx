@@ -81,7 +81,13 @@ export function BaliCarousel({ images, autoPlayInterval = 5000 }: BaliCarouselPr
       className="relative w-full h-screen overflow-hidden bg-background"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      data-hero-section
     >
+      {/* Vignettage subtil sur les bords */}
+      <div className="absolute inset-0 z-40 pointer-events-none">
+        <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.6)]" />
+      </div>
+
       {/* Main Slides */}
       <div className="relative w-full h-full">
         {[-1, 0, 1].map((offset) => {
@@ -117,15 +123,16 @@ export function BaliCarousel({ images, autoPlayInterval = 5000 }: BaliCarouselPr
                   sizes="100vw"
                   quality={90}
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                {/* Overlay gradient amélioré pour fond noir */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-90" />
                 
-                {/* Title */}
+                {/* Title avec effet de profondeur */}
                 {images[index].title && (
                   <div className="absolute bottom-24 left-0 right-0 text-center px-6">
                     <h2
                       className={cn(
                         'text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl transition-all duration-1000',
+                        'elevated-high',
                         isActive && !isTransitioning && 'opacity-100 translate-y-0',
                         (!isActive || isTransitioning) && 'opacity-0 translate-y-10'
                       )}
@@ -140,10 +147,10 @@ export function BaliCarousel({ images, autoPlayInterval = 5000 }: BaliCarouselPr
         })}
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows avec glass effect */}
       <button
         onClick={goToPrev}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 bg-background/30 backdrop-blur-sm hover:bg-background/50 rounded-full flex items-center justify-center transition-all group"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 md:w-16 md:h-16 glass-effect hover:glass-effect-strong rounded-full flex items-center justify-center transition-all group elevated"
         aria-label="Previous image"
       >
         <svg
@@ -161,7 +168,7 @@ export function BaliCarousel({ images, autoPlayInterval = 5000 }: BaliCarouselPr
 
       <button
         onClick={goToNext}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 bg-background/30 backdrop-blur-sm hover:bg-background/50 rounded-full flex items-center justify-center transition-all group"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 md:w-16 md:h-16 glass-effect hover:glass-effect-strong rounded-full flex items-center justify-center transition-all group elevated"
         aria-label="Next image"
       >
         <svg
@@ -177,8 +184,8 @@ export function BaliCarousel({ images, autoPlayInterval = 5000 }: BaliCarouselPr
         </svg>
       </button>
 
-      {/* Dots Navigation */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+      {/* Dots Navigation avec effet de brillance */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-3">
         {images.map((_, index) => (
           <button
             key={index}
@@ -186,19 +193,19 @@ export function BaliCarousel({ images, autoPlayInterval = 5000 }: BaliCarouselPr
             className={cn(
               'transition-all duration-500 rounded-full',
               index === currentIndex
-                ? 'w-12 h-3 bg-white'
-                : 'w-3 h-3 bg-white/40 hover:bg-white/60'
+                ? 'w-12 h-3 bg-white glow-subtle'
+                : 'w-3 h-3 bg-white/40 hover:bg-white/60 hover:glow-subtle'
             )}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
 
-      {/* Progress Bar */}
+      {/* Progress Bar avec effet brillant */}
       {!isPaused && autoPlayInterval > 0 && (
-        <div className="absolute top-0 left-0 right-0 z-30 h-1 bg-white/10">
+        <div className="absolute top-0 left-0 right-0 z-50 h-1 bg-white/10">
           <div
-            className="h-full bg-white transition-all linear"
+            className="h-full bg-gradient-to-r from-accent via-white to-accent-warm transition-all linear glow-subtle"
             style={{
               width: '100%',
               animation: `progress ${autoPlayInterval}ms linear`,

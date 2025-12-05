@@ -21,7 +21,7 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-effect shadow-lg border-b border-white/10">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href={`/${locale}`} className="flex items-center z-10">
@@ -34,13 +34,17 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'text-sm transition-colors hover:text-foreground',
+                  'text-sm transition-all duration-300 hover:text-foreground relative group',
                   pathname === item.href
                     ? 'text-foreground font-medium'
                     : 'text-muted-foreground'
                 )}
               >
                 {item.label}
+                <span className={cn(
+                  'absolute -bottom-1 left-0 h-[2px] bg-accent transition-all duration-300',
+                  pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'
+                )} />
               </Link>
             ))}
           </div>

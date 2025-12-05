@@ -118,14 +118,38 @@ export default async function AboutPage({
           />
         </div>
 
-        {/* Section 2 */}
-        <div className="py-20">
+        {/* Séparateur visuel avec ligne brillante */}
+        <div className="relative py-16">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-white/10" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-background px-6 text-sm text-muted-foreground">
+              ✦
+            </span>
+          </div>
+        </div>
+
+        {/* Section 2 avec fond gradient subtil */}
+        <div className="py-20 -mx-6 px-6 gradient-shine rounded-lg">
           <TextImageSection
             text={sections[1].text}
             imageUrl={sections[1].image}
             imageAlt={sections[1].imageAlt}
             imagePosition={sections[1].position}
           />
+        </div>
+
+        {/* Séparateur visuel avec ligne brillante */}
+        <div className="relative py-16">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-white/10" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-background px-6 text-sm text-muted-foreground">
+              ✦
+            </span>
+          </div>
         </div>
 
         {/* Section 3 - Fusionnée avec section 4 */}
@@ -139,9 +163,10 @@ export default async function AboutPage({
         </div>
       </div>
 
-      {/* Final CTA avec gradient tropical */}
+      {/* Final CTA avec gradient tropical et glass effect */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-ocean-light to-accent opacity-95" />
+        <div className="absolute inset-0 glass-effect-strong" />
         
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center space-y-8">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
@@ -153,13 +178,13 @@ export default async function AboutPage({
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <a
               href={`/${locale}/gallery`}
-              className="px-8 py-4 bg-accent-warm text-white rounded-full font-medium hover:bg-accent hover:scale-105 transition-all shadow-lg"
+              className="px-8 py-4 bg-accent-warm text-white rounded-full font-medium hover:bg-accent hover:scale-105 transition-all shadow-lg elevated"
             >
               {t('ctaGallery')}
             </a>
             <a
               href={`/${locale}/shop`}
-              className="px-8 py-4 border-2 border-primary-foreground text-primary-foreground rounded-full font-medium hover:bg-primary-foreground hover:text-primary transition-all"
+              className="px-8 py-4 glass-effect text-primary-foreground rounded-full font-medium hover:glass-effect-strong transition-all"
             >
               {t('ctaShop')}
             </a>

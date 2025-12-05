@@ -1,7 +1,13 @@
 export function Footer() {
   return (
-    <footer className="border-t border-border mt-auto">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="relative mt-auto overflow-hidden">
+      {/* Bordure supérieure avec effet brillant */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      
+      {/* Fond avec gradient subtil */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background-elevated to-background opacity-50" />
+      
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} VF Images. Tous droits réservés.
@@ -11,11 +17,11 @@ export function Footer() {
               href="https://www.instagram.com/thelensofwonder/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors flex items-center gap-2"
+              className="hover:text-foreground transition-all duration-300 flex items-center gap-2 group"
               aria-label="Instagram"
             >
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"

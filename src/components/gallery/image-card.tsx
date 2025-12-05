@@ -24,13 +24,13 @@ export function ImageCard({ series, locale }: ImageCardProps) {
       href={`/${locale}/gallery/${series.slug || series.id}`}
       className="group relative block overflow-hidden rounded-sm"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted rounded-sm elevated transition-all duration-500 group-hover:elevated-high group-hover:glow-subtle">
         {imageSrc && !imageError ? (
           <Image
             src={imageSrc}
             alt={title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading="lazy"
             placeholder="blur"
@@ -63,6 +63,8 @@ export function ImageCard({ series, locale }: ImageCardProps) {
             </svg>
           </div>
         )}
+        {/* Border gradient subtil */}
+        <div className="absolute inset-0 rounded-sm pointer-events-none border border-white/5 group-hover:border-white/10 transition-colors duration-500" />
       </div>
     </Link>
   );

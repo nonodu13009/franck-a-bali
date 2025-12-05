@@ -4,8 +4,10 @@
 
 @layer base {
   :root {
-    /* Palette Balinaise - Thème Sombre */
-    --background: #0A0A0A;          /* Noir profond */
+    /* Palette Balinaise - Thème Sombre Brillant */
+    --background: #000000;          /* Noir pur */
+    --background-elevated: #0d0d0d; /* Noir élevé */
+    --background-highlight: #1a1a1a; /* Noir highlight */
     --foreground: #F8F3E6;          /* Crème naturelle pour le texte */
     
     /* Couleurs Primaires */
@@ -34,6 +36,11 @@
     --muted-foreground: #B8B8B8;    /* Gris clair pour texte secondaire */
     --border: rgba(248, 243, 230, 0.1); /* Bordure claire subtile */
     
+    /* Brillance subtile */
+    --shine-subtle: rgba(255, 255, 255, 0.03);
+    --shine-medium: rgba(255, 255, 255, 0.05);
+    --shine-highlight: rgba(255, 255, 255, 0.08);
+    
     /* Couleurs spécifiques curseur */
     --cursor-dot: #F8F3E6;          /* Point clair sur fond noir */
     --cursor-circle: #52B788;        /* Vert palmier */
@@ -46,12 +53,65 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: 'rlig' 1, 'calt' 1;
+    /* Fond noir avec gradient radial subtil pour effet de profondeur */
+    background: radial-gradient(ellipse at top, var(--background-highlight), var(--background));
+    background-attachment: fixed;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Effets de profondeur - Premium */
+  .glass-effect {
+    backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-effect-strong {
+    backdrop-filter: blur(30px) saturate(180%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  .shine-border {
+    border-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) 1;
+  }
+  
+  .shine-border-vertical {
+    border-image: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2), transparent) 1;
+  }
+  
+  .elevated {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(255, 255, 255, 0.05);
+  }
+  
+  .elevated-high {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(255, 255, 255, 0.08);
+  }
+  
+  .glow-subtle {
+    box-shadow: 0 0 20px rgba(82, 183, 136, 0.1);
+  }
+  
+  .glow-medium {
+    box-shadow: 0 0 30px rgba(82, 183, 136, 0.2);
+  }
+  
+  .gradient-shine {
+    background: linear-gradient(135deg, var(--background-elevated), var(--background));
+    position: relative;
+  }
+  
+  .gradient-shine::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--shine-subtle), transparent);
+    pointer-events: none;
   }
 }
 
