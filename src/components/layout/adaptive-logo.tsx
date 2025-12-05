@@ -10,7 +10,6 @@ interface AdaptiveLogoProps {
 
 export function AdaptiveLogo({ className }: AdaptiveLogoProps) {
   const [logoType, setLogoType] = useState<'white' | 'black'>('white');
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {

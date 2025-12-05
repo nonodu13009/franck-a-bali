@@ -14,7 +14,6 @@ export function ImageCard({ series, locale }: ImageCardProps) {
   const [imageError, setImageError] = useState(false);
   const [imageSrc, setImageSrc] = useState(series.coverImage || '');
   const title = locale === 'en' ? series.titleEn : series.title;
-  const description = locale === 'en' ? series.descriptionEn : series.description;
 
   // Fallback image si l'image principale ne charge pas
   const fallbackImage = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80';

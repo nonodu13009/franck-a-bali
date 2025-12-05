@@ -43,7 +43,7 @@ function serializeBlogPost(post: BlogPost) {
 export async function getSeries(): Promise<Series[]> {
   let series: Series[];
   
-  if (USE_MOCK_DATA) {
+  if (USE_MOCK_DATA || !db) {
     series = mockSeries;
   } else {
     try {
@@ -74,7 +74,7 @@ export async function getSeries(): Promise<Series[]> {
 export async function getSeriesBySlug(slug: string): Promise<Series | null> {
   let series: Series | null = null;
   
-  if (USE_MOCK_DATA) {
+  if (USE_MOCK_DATA || !db) {
     series = mockSeries.find((s) => (s.slug || s.id) === slug) || null;
   } else {
     try {
@@ -102,7 +102,7 @@ export async function getSeriesBySlug(slug: string): Promise<Series | null> {
 }
 
 export async function getImagesBySeries(seriesId: string): Promise<Image[]> {
-  if (USE_MOCK_DATA) {
+  if (USE_MOCK_DATA || !db) {
     return mockImages.filter((img) => img.seriesId === seriesId);
   }
 
@@ -135,7 +135,7 @@ export async function getImagesBySeries(seriesId: string): Promise<Image[]> {
 export async function getBlogPosts(): Promise<BlogPost[]> {
   let posts: BlogPost[];
   
-  if (USE_MOCK_DATA) {
+  if (USE_MOCK_DATA || !db) {
     posts = mockBlogPosts;
   } else {
     try {
@@ -165,7 +165,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   let post: BlogPost | null = null;
   
-  if (USE_MOCK_DATA) {
+  if (USE_MOCK_DATA || !db) {
     post = mockBlogPosts.find((p) => p.slug === slug) || null;
   } else {
     try {
