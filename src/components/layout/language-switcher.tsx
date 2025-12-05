@@ -21,23 +21,23 @@ export function LanguageSwitcher() {
     <div className="flex items-center gap-2">
       <button
         onClick={() => switchLocale('fr')}
-        className={`px-3 py-1 text-sm transition-colors ${
+        className={`px-3 py-1 text-sm font-medium transition-colors ${
           locale === 'fr'
-            ? 'text-foreground font-medium'
-            : 'text-muted-foreground hover:text-foreground'
+            ? 'text-white'
+            : 'text-white/60 hover:text-white'
         }`}
         disabled={isPending}
         aria-label="Switch to French"
       >
         FR
       </button>
-      <span className="text-muted-foreground">/</span>
+      <span className="text-white/40">/</span>
       <button
         onClick={() => switchLocale('en')}
-        className={`px-3 py-1 text-sm transition-colors ${
+        className={`px-3 py-1 text-sm font-medium transition-colors ${
           locale === 'en'
-            ? 'text-foreground font-medium'
-            : 'text-muted-foreground hover:text-foreground'
+            ? 'text-white'
+            : 'text-white/60 hover:text-white'
         }`}
         disabled={isPending}
         aria-label="Switch to English"
