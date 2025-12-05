@@ -29,22 +29,22 @@ export function TextImageSection({
 
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      {/* Text */}
+      {/* Text - Simple et lisible */}
       <div
         ref={textRef as React.RefObject<HTMLDivElement>}
         className={`space-y-6 transition-all duration-1000 ${
           imagePosition === 'right' ? 'lg:order-1' : 'lg:order-2'
         } ${textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/90 font-sans">
+        <p className="text-lg md:text-xl leading-relaxed text-white/80 font-sans">
           {text}
         </p>
       </div>
 
-      {/* Image avec effets noir brillant */}
+      {/* Image - Simple avec bordure subtile */}
       <div
         ref={imageRef as React.RefObject<HTMLDivElement>}
-        className={`relative h-[400px] md:h-[500px] lg:h-[600px] rounded-sm overflow-hidden elevated transition-all duration-1000 hover:elevated-high hover:glow-subtle group ${
+        className={`relative h-[400px] md:h-[500px] lg:h-[600px] rounded-sm overflow-hidden transition-all duration-1000 group ${
           imagePosition === 'right' ? 'lg:order-2' : 'lg:order-1'
         } ${imageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
@@ -52,12 +52,12 @@ export function TextImageSection({
           src={imageUrl}
           alt={imageAlt}
           fill
-          className="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-700"
+          className="object-cover group-hover:scale-105 transition-all duration-700"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={priority}
         />
-        {/* Bordure subtile */}
-        <div className="absolute inset-0 rounded-sm pointer-events-none border border-white/5 group-hover:border-white/10 transition-colors duration-500" />
+        {/* Bordure subtile blanche */}
+        <div className="absolute inset-0 rounded-sm pointer-events-none border border-white/5" />
       </div>
     </section>
   );

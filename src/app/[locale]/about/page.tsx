@@ -97,7 +97,7 @@ export default async function AboutPage({
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       {/* Hero Section avec Parallax */}
       <ParallaxHero
         title={t('title')}
@@ -105,89 +105,81 @@ export default async function AboutPage({
         imageUrl="https://images.unsplash.com/photo-1555217851-6141535bd771?w=1920&q=80&auto=format&fit=crop"
       />
 
-      {/* Story Sections avec espacement variable - FOND NOIR UNIFORME */}
-      <div className="max-w-7xl mx-auto px-6 bg-background">
-        {/* Section 1 - Plus d'espace après hero */}
-        <div className="pt-32 pb-20">
-          <TextImageSection
-            text={sections[0].text}
-            imageUrl={sections[0].image}
-            imageAlt={sections[0].imageAlt}
-            imagePosition={sections[0].position}
-            priority
-          />
-        </div>
-
-        {/* Séparateur visuel avec ligne brillante */}
-        <div className="relative py-16">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-white/10" />
+      {/* Story Sections - FOND NOIR PUR */}
+      <div className="bg-black">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Section 1 */}
+          <div className="pt-32 pb-20">
+            <TextImageSection
+              text={sections[0].text}
+              imageUrl={sections[0].image}
+              imageAlt={sections[0].imageAlt}
+              imagePosition={sections[0].position}
+              priority
+            />
           </div>
-          <div className="relative flex justify-center">
-            <span className="bg-background px-6 text-sm text-muted-foreground">
-              ✦
-            </span>
-          </div>
-        </div>
 
-        {/* Section 2 - FOND NOIR sans gradient-shine */}
-        <div className="py-20">
-          <TextImageSection
-            text={sections[1].text}
-            imageUrl={sections[1].image}
-            imageAlt={sections[1].imageAlt}
-            imagePosition={sections[1].position}
-          />
-        </div>
-
-        {/* Séparateur visuel avec ligne brillante */}
-        <div className="relative py-16">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-white/10" />
+          {/* Séparateur simple */}
+          <div className="relative py-16">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-white/5" />
+            </div>
+            <div className="relative flex justify-center">
+              <span className="bg-black px-6 text-sm text-white/40">✦</span>
+            </div>
           </div>
-          <div className="relative flex justify-center">
-            <span className="bg-background px-6 text-sm text-muted-foreground">
-              ✦
-            </span>
-          </div>
-        </div>
 
-        {/* Section 3 - Fusionnée avec section 4 */}
-        <div className="py-20 pb-32">
-          <TextImageSection
-            text={sections[2].text}
-            imageUrl={sections[2].image}
-            imageAlt={sections[2].imageAlt}
-            imagePosition={sections[2].position}
-          />
+          {/* Section 2 */}
+          <div className="py-20">
+            <TextImageSection
+              text={sections[1].text}
+              imageUrl={sections[1].image}
+              imageAlt={sections[1].imageAlt}
+              imagePosition={sections[1].position}
+            />
+          </div>
+
+          {/* Séparateur simple */}
+          <div className="relative py-16">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-white/5" />
+            </div>
+            <div className="relative flex justify-center">
+              <span className="bg-black px-6 text-sm text-white/40">✦</span>
+            </div>
+          </div>
+
+          {/* Section 3 */}
+          <div className="py-20 pb-32">
+            <TextImageSection
+              text={sections[2].text}
+              imageUrl={sections[2].image}
+              imageAlt={sections[2].imageAlt}
+              imagePosition={sections[2].position}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Final CTA - FOND NOIR avec glass effect */}
-      <section className="relative py-32 overflow-hidden bg-background">
-        {/* Bordure supérieure brillante */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        
-        {/* Fond avec gradient noir subtil */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background-elevated via-background to-background-elevated opacity-50" />
-        
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center space-y-8">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white elevated-high">
+      {/* Final CTA - NOIR PUR SIMPLE */}
+      <section className="relative py-32 overflow-hidden bg-black border-t border-white/5">
+        <div className="max-w-3xl mx-auto px-6 text-center space-y-8">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white">
             {t('ctaTitle')}
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/90">
+          <p className="text-xl md:text-2xl text-white/70">
             {t('ctaSubtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <a
               href={`/${locale}/gallery`}
-              className="px-8 py-4 glass-effect-strong text-white rounded-full font-medium hover:bg-accent/20 hover:scale-105 transition-all elevated glow-subtle"
+              className="px-8 py-4 bg-white/10 hover:bg-white/15 text-white rounded-full font-medium transition-all duration-300 border border-white/10"
             >
               {t('ctaGallery')}
             </a>
             <a
               href={`/${locale}/shop`}
-              className="px-8 py-4 glass-effect text-foreground rounded-full font-medium hover:glass-effect-strong transition-all elevated"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white rounded-full font-medium transition-all duration-300 border border-white/10"
             >
               {t('ctaShop')}
             </a>
