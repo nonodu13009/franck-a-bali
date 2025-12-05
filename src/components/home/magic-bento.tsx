@@ -4,6 +4,15 @@ import { useRef, useEffect, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
 import './magic-bento.css';
 
+// Types pour GSAP
+declare module 'gsap' {
+  namespace gsap {
+    interface Tween {
+      kill(): void;
+    }
+  }
+}
+
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '82, 183, 136'; // Vert accent du site
