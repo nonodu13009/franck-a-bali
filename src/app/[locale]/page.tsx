@@ -5,8 +5,8 @@ import { MasonryGallery } from '@/components/home/masonry-gallery';
 
 // Image hero plein écran
 const HERO_IMAGE = {
-  src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=90&auto=format&fit=crop',
-  alt: 'Majestic Bali temple with traditional architecture',
+    src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=90&auto=format&fit=crop',
+    alt: 'Majestic Bali temple with traditional architecture',
 };
 
 // Images masonry - mix portrait, paysage, et pleine largeur

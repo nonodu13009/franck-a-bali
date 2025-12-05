@@ -44,15 +44,15 @@ export function BlogCard({ post, locale }: BlogCardProps) {
           
           {/* Titre */}
           <h3 className="text-xl font-semibold text-white group-hover:text-white transition-colors duration-300">
-            {title}
-          </h3>
+          {title}
+        </h3>
           
           {/* Excerpt */}
-          {excerpt && (
+        {excerpt && (
             <p className="text-sm text-white/70 leading-relaxed line-clamp-2">
-              {excerpt}
-            </p>
-          )}
+            {excerpt}
+          </p>
+        )}
           
           {/* Footer avec auteur */}
           <div className="flex items-center justify-between pt-2 border-t border-white/10">
@@ -60,9 +60,9 @@ export function BlogCard({ post, locale }: BlogCardProps) {
             <span className="text-xs text-white/80 group-hover:text-white transition-colors">
               Lire la suite →
             </span>
-          </div>
         </div>
-      </Link>
+      </div>
+    </Link>
     </article>
   );
 }

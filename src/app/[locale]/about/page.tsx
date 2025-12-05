@@ -64,17 +64,17 @@ export default async function AboutPage({
 
       {/* Story Sections - FOND NOIR PUR - Espacement réduit */}
       <div className="bg-black">
-        <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
           {/* Section 1 */}
           <div className="pt-20 pb-12">
-            <TextImageSection
-              text={sections[0].text}
-              imageUrl={sections[0].image}
-              imageAlt={sections[0].imageAlt}
-              imagePosition={sections[0].position}
-              priority
-            />
-          </div>
+          <TextImageSection
+            text={sections[0].text}
+            imageUrl={sections[0].image}
+            imageAlt={sections[0].imageAlt}
+            imagePosition={sections[0].position}
+            priority
+          />
+        </div>
 
           {/* Séparateur simple */}
           <div className="relative py-8">
@@ -86,15 +86,15 @@ export default async function AboutPage({
             </div>
           </div>
 
-          {/* Section 2 */}
+        {/* Section 2 */}
           <div className="py-12">
-            <TextImageSection
-              text={sections[1].text}
-              imageUrl={sections[1].image}
-              imageAlt={sections[1].imageAlt}
-              imagePosition={sections[1].position}
-            />
-          </div>
+          <TextImageSection
+            text={sections[1].text}
+            imageUrl={sections[1].image}
+            imageAlt={sections[1].imageAlt}
+            imagePosition={sections[1].position}
+          />
+        </div>
 
           {/* Séparateur simple */}
           <div className="relative py-8">
@@ -106,15 +106,15 @@ export default async function AboutPage({
             </div>
           </div>
 
-          {/* Section 3 */}
+        {/* Section 3 */}
           <div className="py-12 pb-16">
-            <TextImageSection
-              text={sections[2].text}
-              imageUrl={sections[2].image}
-              imageAlt={sections[2].imageAlt}
-              imagePosition={sections[2].position}
-            />
-          </div>
+          <TextImageSection
+            text={sections[2].text}
+            imageUrl={sections[2].image}
+            imageAlt={sections[2].imageAlt}
+            imagePosition={sections[2].position}
+          />
+        </div>
         </div>
       </div>
 

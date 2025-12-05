@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { ParticleCard, GlobalSpotlight, useMobileDetection } from './magic-bento';
 
 interface MasonryImage {
   src: string;
@@ -14,16 +15,33 @@ interface MasonryGalleryProps {
 }
 
 export function MasonryGallery({ images }: MasonryGalleryProps) {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMobileDetection();
+  const shouldDisableAnimations = isMobile;
+
   return (
     <section className="bg-black pt-16 md:pt-20 lg:pt-24">
-      {/* Grille bento dense sans espaces */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px]">
+      {/* Spotlight global */}
+      <GlobalSpotlight
+        gridRef={gridRef}
+        disableAnimations={shouldDisableAnimations}
+        enabled={true}
+        spotlightRadius={300}
+        glowColor="82, 183, 136"
+      />
+      
+      {/* Grille bento dense sans espaces avec effets MagicBento */}
+      <div
+        ref={gridRef}
+        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px] bento-section"
+      >
         {images.map((image, index) => (
           <MasonryImageCard
             key={index}
             image={image}
             index={index}
             totalImages={images.length}
+            disableAnimations={shouldDisableAnimations}
           />
         ))}
       </div>
@@ -35,9 +53,10 @@ interface MasonryImageCardProps {
   image: MasonryImage;
   index: number;
   totalImages: number;
+  disableAnimations?: boolean;
 }
 
-function MasonryImageCard({ image, index, totalImages }: MasonryImageCardProps) {
+function MasonryImageCard({ image, index, totalImages, disableAnimations = false }: MasonryImageCardProps) {
   const [imageError, setImageError] = useState(false);
   const fallbackImage = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80';
 
@@ -59,8 +78,14 @@ function MasonryImageCard({ image, index, totalImages }: MasonryImageCardProps) 
   const shouldPrioritize = index < 3;
 
   return (
-    <div
-      className={`group relative overflow-hidden bg-black ${getBentoSpan()}`}
+    <ParticleCard
+      className={`${getBentoSpan()}`}
+      disableAnimations={disableAnimations}
+      particleCount={12}
+      glowColor="82, 183, 136"
+      enableTilt={true}
+      clickEffect={true}
+      enableMagnetism={true}
     >
       <Image
         src={imageError ? fallbackImage : image.src}
@@ -73,7 +98,7 @@ function MasonryImageCard({ image, index, totalImages }: MasonryImageCardProps) 
         }
         quality={85}
         loading={shouldPrioritize ? undefined : 'lazy'}
-        className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
+        className="object-cover"
         onError={() => {
           console.warn(`Failed to load image: ${image.src}`);
           if (image.src !== fallbackImage) {
@@ -81,7 +106,7 @@ function MasonryImageCard({ image, index, totalImages }: MasonryImageCardProps) 
           }
         }}
       />
-    </div>
+    </ParticleCard>
   );
 }
 

@@ -22,12 +22,12 @@ let storage: FirebaseStorage | null = null;
 
 // N'initialiser Firebase que si la config est complète
 if (isFirebaseConfigured) {
-  if (!getApps().length) {
-    app = initializeApp(firebaseConfig);
-  } else {
-    app = getApps()[0];
-  }
-  
+if (!getApps().length) {
+  app = initializeApp(firebaseConfig);
+} else {
+  app = getApps()[0];
+}
+
   if (app) {
     db = getFirestore(app);
     storage = getStorage(app);

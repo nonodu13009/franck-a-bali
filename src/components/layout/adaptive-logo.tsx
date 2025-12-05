@@ -172,16 +172,16 @@ export function AdaptiveLogo({ className }: AdaptiveLogoProps) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Logo simple sans effets */}
-      <Image
-        src={logoType === 'white' ? '/images/logoBlanc.png' : '/images/logoNoir.png'}
-        alt="VF Images"
-        width={180}
-        height={60}
-        className={cn(
-          className,
+        <Image
+          src={logoType === 'white' ? '/images/logoBlanc.png' : '/images/logoNoir.png'}
+          alt="VF Images"
+          width={180}
+          height={60}
+          className={cn(
+            className,
           'transition-all duration-300'
-        )}
-        priority
+          )}
+          priority
       />
     </div>
   );
