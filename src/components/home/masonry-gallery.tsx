@@ -15,19 +15,17 @@ interface MasonryGalleryProps {
 
 export function MasonryGallery({ images }: MasonryGalleryProps) {
   return (
-    <section className="bg-black py-16 md:py-24 lg:py-32">
-      <div className="container mx-auto px-6 md:px-8 lg:px-12">
-        {/* Grille masonry responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {images.map((image, index) => (
-            <MasonryImageCard
-              key={index}
-              image={image}
-              index={index}
-              totalImages={images.length}
-            />
-          ))}
-        </div>
+    <section className="bg-black">
+      {/* Grille bento dense sans espaces */}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px]">
+        {images.map((image, index) => (
+          <MasonryImageCard
+            key={index}
+            image={image}
+            index={index}
+            totalImages={images.length}
+          />
+        ))}
       </div>
     </section>
   );
@@ -43,18 +41,26 @@ function MasonryImageCard({ image, index, totalImages }: MasonryImageCardProps) 
   const [imageError, setImageError] = useState(false);
   const fallbackImage = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80';
 
-  // Déterminer le ratio d'aspect selon l'orientation
-  const aspectClass = 
-    image.orientation === 'portrait' ? 'aspect-[3/4]' :
-    image.orientation === 'wide' ? 'aspect-[16/9] md:col-span-2' :
-    'aspect-[4/3]';
+  // Layout bento : spans variés pour créer un effet dense et harmonieux
+  const getBentoSpan = () => {
+    if (image.orientation === 'wide') {
+      // Images wide : 2 colonnes x 2 lignes (grand carré)
+      return 'col-span-2 row-span-2';
+    } else if (image.orientation === 'portrait') {
+      // Images portrait : 1 colonne x 2 lignes (vertical)
+      return 'col-span-1 row-span-2';
+    } else {
+      // Images landscape : 2 colonnes x 1 ligne (horizontal) ou 1x1 selon position
+      return index % 3 === 0 ? 'col-span-2 row-span-1' : 'col-span-1 row-span-1';
+    }
+  };
 
   // Lazy loading : priority pour les 3 premières images, lazy pour le reste
   const shouldPrioritize = index < 3;
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-sm bg-black ${aspectClass}`}
+      className={`group relative overflow-hidden bg-black ${getBentoSpan()}`}
     >
       <Image
         src={imageError ? fallbackImage : image.src}
@@ -75,9 +81,6 @@ function MasonryImageCard({ image, index, totalImages }: MasonryImageCardProps) 
           }
         }}
       />
-      
-      {/* Bordure subtile */}
-      <div className="absolute inset-0 rounded-sm pointer-events-none border border-white/5 group-hover:border-white/10 transition-colors duration-500" />
     </div>
   );
 }
