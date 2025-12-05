@@ -117,9 +117,6 @@ export function AdaptiveLogo({ className }: AdaptiveLogoProps) {
     // Détecter le scroll pour l'animation
     let scrollTimeout: NodeJS.Timeout;
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 50);
-      
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(updateLogo, 50);
     };
