@@ -9,8 +9,11 @@ import { db } from './config';
 import type { Series, Image, BlogPost } from '@/types/firebase.type';
 import { mockSeries, mockImages, mockBlogPosts } from '@/lib/mock-data';
 
-// Mode mock activé si pas de données Firebase
-const USE_MOCK_DATA = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true' || process.env.NODE_ENV === 'development';
+// Mode mock activé si pas de données Firebase ou si Firebase n'est pas configuré
+const USE_MOCK_DATA = 
+  process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true' || 
+  process.env.NODE_ENV === 'development' ||
+  !db; // Si db est null, Firebase n'est pas initialisé
 
 // Helper pour convertir Timestamp en objet sérialisable
 function serializeTimestamp(timestamp: { seconds?: number; nanoseconds?: number; toDate?: () => Date; toMillis?: () => number } | null) {

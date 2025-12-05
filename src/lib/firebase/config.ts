@@ -11,16 +11,30 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-let app: FirebaseApp;
+// Vérifier si toutes les variables Firebase sont définies
+const isFirebaseConfigured = Object.values(firebaseConfig).every(
+  val => val && val !== 'undefined' && val !== ''
+);
 
-if (!getApps().length) {
-  app = initializeApp(firebaseConfig);
+let app: FirebaseApp | null = null;
+let db: Firestore | null = null;
+let storage: FirebaseStorage | null = null;
+
+// N'initialiser Firebase que si la config est complète
+if (isFirebaseConfigured) {
+  if (!getApps().length) {
+    app = initializeApp(firebaseConfig);
+  } else {
+    app = getApps()[0];
+  }
+  
+  if (app) {
+    db = getFirestore(app);
+    storage = getStorage(app);
+  }
 } else {
-  app = getApps()[0];
+  console.log('[Firebase] Configuration incomplète - Mode mock data activé');
 }
-
-const db: Firestore = getFirestore(app);
-const storage: FirebaseStorage = getStorage(app);
 
 export { db, storage };
 
