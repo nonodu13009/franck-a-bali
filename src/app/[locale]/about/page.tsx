@@ -105,11 +105,11 @@ export default async function AboutPage({
         imageUrl="https://images.unsplash.com/photo-1555217851-6141535bd771?w=1920&q=80&auto=format&fit=crop"
       />
 
-      {/* Story Sections - FOND NOIR PUR */}
+      {/* Story Sections - FOND NOIR PUR - Espacement réduit */}
       <div className="bg-black">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section 1 */}
-          <div className="pt-32 pb-20">
+          <div className="pt-20 pb-12">
             <TextImageSection
               text={sections[0].text}
               imageUrl={sections[0].image}
@@ -120,7 +120,7 @@ export default async function AboutPage({
           </div>
 
           {/* Séparateur simple */}
-          <div className="relative py-16">
+          <div className="relative py-8">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-white/5" />
             </div>
@@ -130,7 +130,7 @@ export default async function AboutPage({
           </div>
 
           {/* Section 2 */}
-          <div className="py-20">
+          <div className="py-12">
             <TextImageSection
               text={sections[1].text}
               imageUrl={sections[1].image}
@@ -140,7 +140,7 @@ export default async function AboutPage({
           </div>
 
           {/* Séparateur simple */}
-          <div className="relative py-16">
+          <div className="relative py-8">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-white/5" />
             </div>
@@ -150,7 +150,7 @@ export default async function AboutPage({
           </div>
 
           {/* Section 3 */}
-          <div className="py-20 pb-32">
+          <div className="py-12 pb-16">
             <TextImageSection
               text={sections[2].text}
               imageUrl={sections[2].image}
@@ -162,7 +162,7 @@ export default async function AboutPage({
       </div>
 
       {/* Final CTA - NOIR PUR SIMPLE */}
-      <section className="relative py-32 overflow-hidden bg-black border-t border-white/5">
+      <section className="relative py-20 overflow-hidden bg-black border-t border-white/5">
         <div className="max-w-3xl mx-auto px-6 text-center space-y-8">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white">
             {t('ctaTitle')}
