@@ -286,7 +286,7 @@ export function ParticleCard({
 }
 
 interface GlobalSpotlightProps {
-  gridRef: React.RefObject<HTMLElement>;
+  gridRef: React.RefObject<HTMLElement | null>;
   disableAnimations?: boolean;
   enabled?: boolean;
   spotlightRadius?: number;
@@ -331,8 +331,9 @@ export function GlobalSpotlight({
     spotlightRef.current = spotlight;
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!spotlightRef.current || !gridRef.current) return;
-      const section = gridRef.current.closest('.bento-section');
+      const currentGrid = gridRef.current;
+      if (!spotlightRef.current || !currentGrid) return;
+      const section = currentGrid.closest('.bento-section');
       const rect = section?.getBoundingClientRect();
       const mouseInside =
         rect &&
@@ -342,7 +343,7 @@ export function GlobalSpotlight({
         e.clientY <= rect.bottom;
 
       isInsideSection.current = mouseInside || false;
-      const cards = gridRef.current.querySelectorAll<HTMLElement>('.magic-bento-card--border-glow');
+      const cards = currentGrid.querySelectorAll<HTMLElement>('.magic-bento-card--border-glow');
 
       if (!mouseInside) {
         gsap.to(spotlightRef.current, {
@@ -402,9 +403,12 @@ export function GlobalSpotlight({
 
     const handleMouseLeave = () => {
       isInsideSection.current = false;
-      gridRef.current?.querySelectorAll<HTMLElement>('.magic-bento-card--border-glow').forEach((card) => {
-        card.style.setProperty('--glow-intensity', '0');
-      });
+      const currentGrid = gridRef.current;
+      if (currentGrid) {
+        currentGrid.querySelectorAll<HTMLElement>('.magic-bento-card--border-glow').forEach((card) => {
+          card.style.setProperty('--glow-intensity', '0');
+        });
+      }
       if (spotlightRef.current) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
@@ -429,7 +433,7 @@ export function GlobalSpotlight({
 
 interface BentoCardGridProps {
   children: React.ReactNode;
-  gridRef: React.RefObject<HTMLDivElement>;
+  gridRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export function BentoCardGrid({ children, gridRef }: BentoCardGridProps) {
