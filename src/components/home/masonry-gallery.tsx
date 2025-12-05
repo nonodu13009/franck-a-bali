@@ -40,7 +40,6 @@ export function MasonryGallery({ images }: MasonryGalleryProps) {
             key={index}
             image={image}
             index={index}
-            totalImages={images.length}
             disableAnimations={shouldDisableAnimations}
           />
         ))}
@@ -52,11 +51,10 @@ export function MasonryGallery({ images }: MasonryGalleryProps) {
 interface MasonryImageCardProps {
   image: MasonryImage;
   index: number;
-  totalImages: number;
   disableAnimations?: boolean;
 }
 
-function MasonryImageCard({ image, index, totalImages, disableAnimations = false }: MasonryImageCardProps) {
+function MasonryImageCard({ image, index, disableAnimations = false }: MasonryImageCardProps) {
   const [imageError, setImageError] = useState(false);
   const fallbackImage = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80';
 

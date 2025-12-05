@@ -2,16 +2,8 @@
 
 import { useRef, useEffect, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
+import type { Tween } from 'gsap';
 import './magic-bento.css';
-
-// Types pour GSAP
-declare module 'gsap' {
-  namespace gsap {
-    interface Tween {
-      kill(): void;
-    }
-  }
-}
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
@@ -86,7 +78,7 @@ export function ParticleCard({
   const isHoveredRef = useRef(false);
   const memoizedParticles = useRef<HTMLElement[]>([]);
   const particlesInitialized = useRef(false);
-  const magnetismAnimationRef = useRef<gsap.core.Tween | null>(null);
+  const magnetismAnimationRef = useRef<Tween | null>(null);
 
   const initializeParticles = useCallback(() => {
     if (particlesInitialized.current || !cardRef.current) return;
