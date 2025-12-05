@@ -165,15 +165,7 @@ function MasonryImageCard({ image, index, positionMobile, positionTablet, positi
     return `${mobileCol} ${mobileRow} ${tabletCol} ${tabletRow} ${desktopCol} ${desktopRow}`;
   };
 
-  // Styles inline pour les positions de départ (calculées dynamiquement)
-  const getInlineStyles = (): React.CSSProperties => {
-    return {
-      gridColumnStart: positionMobile.colStart || undefined,
-      gridRowStart: positionMobile.rowStart || undefined,
-      // Pour tablet et desktop, on utilise des media queries CSS custom si nécessaire
-      // Pour l'instant, on laisse CSS Grid gérer automatiquement le placement
-    };
-  };
+  // Pas besoin de styles inline - CSS Grid auto-placement gère le remplissage
 
   // Lazy loading : priority pour les 3 premières images, lazy pour le reste
   const shouldPrioritize = index < 3;
@@ -181,7 +173,6 @@ function MasonryImageCard({ image, index, positionMobile, positionTablet, positi
   return (
     <div
       className={`group relative overflow-hidden bg-black ${getSpanClasses()}`}
-      style={getInlineStyles()}
     >
       <Image
         src={imageError ? fallbackImage : image.src}
