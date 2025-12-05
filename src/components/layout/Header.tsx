@@ -37,19 +37,19 @@ export function Header() {
                   'text-sm transition-all duration-300 relative group px-1 py-2',
                   pathname === item.href
                     ? 'text-white font-medium'
-                    : 'text-muted-foreground hover:text-white'
+                    : 'text-white/70 hover:text-white'
                 )}
               >
                 {item.label}
                 {/* Effet élégant : dot lumineux pour l'item actif */}
                 {pathname === item.href && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full glow-medium" />
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
                 )}
                 {/* Hover effect subtil */}
                 <span className={cn(
                   'absolute inset-0 -z-10 rounded opacity-0 transition-opacity duration-300',
                   'group-hover:opacity-100',
-                  pathname !== item.href && 'glass-effect'
+                  pathname !== item.href && 'bg-white/5'
                 )} />
               </Link>
             ))}

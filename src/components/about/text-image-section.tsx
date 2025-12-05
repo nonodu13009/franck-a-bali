@@ -29,14 +29,14 @@ export function TextImageSection({
 
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      {/* Text - Simple et lisible */}
+      {/* Text - Simple et lisible avec meilleur contraste */}
       <div
         ref={textRef as React.RefObject<HTMLDivElement>}
         className={`space-y-6 transition-all duration-1000 ${
           imagePosition === 'right' ? 'lg:order-1' : 'lg:order-2'
         } ${textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
-        <p className="text-lg md:text-xl leading-relaxed text-white/80 font-sans">
+        <p className="text-lg md:text-xl leading-relaxed text-white/90 font-sans">
           {text}
         </p>
       </div>

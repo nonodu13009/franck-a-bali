@@ -54,8 +54,8 @@ export default async function BlogPage({
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 mt-16">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 elevated-high">{t('title')}</h1>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t('description')}</p>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">{t('title')}</h1>
+        <p className="text-white/70 text-lg max-w-2xl mx-auto">{t('description')}</p>
       </div>
 
       <Suspense
@@ -64,7 +64,7 @@ export default async function BlogPage({
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className="aspect-video bg-muted animate-pulse rounded-sm elevated"
+                className="aspect-video bg-white/5 animate-pulse rounded-sm"
               />
             ))}
           </div>

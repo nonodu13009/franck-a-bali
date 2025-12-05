@@ -9,15 +9,15 @@ export function Footer() {
       
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-white/60">
             © {new Date().getFullYear()} VF Images. Tous droits réservés.
           </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
+          <div className="flex gap-6 text-sm text-white/60">
             <a
               href="https://www.instagram.com/thelensofwonder/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-all duration-300 flex items-center gap-2 group"
+              className="hover:text-white transition-all duration-300 flex items-center gap-2 group"
               aria-label="Instagram"
             >
               <svg
