@@ -14,7 +14,7 @@ export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
   const { elementRef: contentRef, offset: contentOffset } = useParallax({ speed: 0.1 });
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden" data-hero-section>
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-background" data-hero-section>
       {/* Background Layer - Parallax lent */}
       <div
         ref={bgRef as React.RefObject<HTMLDivElement>}

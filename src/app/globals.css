@@ -53,8 +53,8 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: 'rlig' 1, 'calt' 1;
-    /* Fond noir avec gradient radial subtil pour effet de profondeur */
-    background: radial-gradient(ellipse at top, var(--background-highlight), var(--background));
+    /* Fond noir pur uniforme - design glossy black */
+    background: #000000;
     background-attachment: fixed;
   }
 }
