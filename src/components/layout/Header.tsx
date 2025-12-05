@@ -34,16 +34,22 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'text-sm transition-all duration-300 hover:text-foreground relative group',
+                  'text-sm transition-all duration-300 relative group px-1 py-2',
                   pathname === item.href
-                    ? 'text-foreground font-medium'
-                    : 'text-muted-foreground'
+                    ? 'text-white font-medium'
+                    : 'text-muted-foreground hover:text-white'
                 )}
               >
                 {item.label}
+                {/* Effet élégant : dot lumineux pour l'item actif */}
+                {pathname === item.href && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full glow-medium" />
+                )}
+                {/* Hover effect subtil */}
                 <span className={cn(
-                  'absolute -bottom-1 left-0 h-[2px] bg-accent transition-all duration-300',
-                  pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'
+                  'absolute inset-0 -z-10 rounded opacity-0 transition-opacity duration-300',
+                  'group-hover:opacity-100',
+                  pathname !== item.href && 'glass-effect'
                 )} />
               </Link>
             ))}

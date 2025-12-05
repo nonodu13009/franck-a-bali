@@ -284,71 +284,255 @@ export const mockImages: Image[] = [
 export const mockBlogPosts: BlogPost[] = [
   {
     id: 'blog-1',
-    slug: 'decouvrir-bali',
-    title: 'Découvrir Bali : Un Paradis Photographique',
-    titleEn: 'Discovering Bali: A Photographic Paradise',
+    slug: 'temples-caches-bali',
+    title: 'Les Temples Cachés de Bali',
+    titleEn: 'Hidden Temples of Bali',
     content: `
-      <h2>Introduction</h2>
-      <p>Bali est une île indonésienne qui offre une richesse visuelle incomparable pour les photographes. De ses rizières en terrasses à ses temples sacrés, chaque coin de l'île raconte une histoire unique.</p>
+      <h2>Une Quête Spirituelle</h2>
+      <p>Au-delà des sites touristiques classiques, Bali recèle des temples méconnus d'une beauté exceptionnelle. Ces sanctuaires cachés offrent une expérience photographique unique, loin des foules.</p>
       
-      <h2>Les Rizières en Terrasses</h2>
-      <p>Les rizières en terrasses de Jatiluwih sont un spectacle à couper le souffle. Ces paysages sculptés par l'homme offrent des perspectives infinies pour la photographie de paysage.</p>
+      <h2>Le Temple de Tirta Gangga</h2>
+      <p>Niché dans l'est de Bali, ce palais aquatique construit en 1946 est un joyau architectural. Les bassins ornés, les fontaines et les jardins luxuriants créent des reflets et des jeux de lumière fascinants.</p>
       
-      <h2>Les Temples Sacrés</h2>
-      <p>Bali compte des milliers de temples, chacun avec son architecture unique. Le temple de Tanah Lot, perché sur un rocher au-dessus de l'océan, est particulièrement photogénique au coucher du soleil.</p>
+      <h2>Conseils de Prise de Vue</h2>
+      <p>Photographiez tôt le matin pour capturer la lumière douce et éviter les visiteurs. Les reflets dans l'eau offrent des opportunités créatives infinies. Utilisez un filtre polarisant pour contrôler les reflets.</p>
       
-      <h2>Conclusion</h2>
-      <p>Que vous soyez amateur de paysages, de portraits ou d'architecture, Bali offre des opportunités photographiques infinies.</p>
+      <h2>Respecter le Sacré</h2>
+      <p>N'oubliez pas que ces lieux sont des sites religieux actifs. Portez un sarong, restez discret pendant les cérémonies, et demandez toujours la permission avant de photographier.</p>
     `,
     contentEn: `
-      <h2>Introduction</h2>
-      <p>Bali is an Indonesian island that offers incomparable visual richness for photographers. From its terraced rice fields to its sacred temples, every corner of the island tells a unique story.</p>
+      <h2>A Spiritual Quest</h2>
+      <p>Beyond the classic tourist sites, Bali harbors little-known temples of exceptional beauty. These hidden sanctuaries offer a unique photographic experience, far from the crowds.</p>
       
-      <h2>Terraced Rice Fields</h2>
-      <p>The terraced rice fields of Jatiluwih are a breathtaking sight. These man-made landscapes offer infinite perspectives for landscape photography.</p>
+      <h2>Tirta Gangga Temple</h2>
+      <p>Nestled in eastern Bali, this water palace built in 1946 is an architectural jewel. The ornate pools, fountains, and lush gardens create fascinating reflections and plays of light.</p>
       
-      <h2>Sacred Temples</h2>
-      <p>Bali has thousands of temples, each with its unique architecture. Tanah Lot Temple, perched on a rock above the ocean, is particularly photogenic at sunset.</p>
+      <h2>Shooting Tips</h2>
+      <p>Photograph early in the morning to capture soft light and avoid visitors. Water reflections offer endless creative opportunities. Use a polarizing filter to control reflections.</p>
       
-      <h2>Conclusion</h2>
-      <p>Whether you're a fan of landscapes, portraits, or architecture, Bali offers infinite photographic opportunities.</p>
+      <h2>Respecting the Sacred</h2>
+      <p>Remember that these places are active religious sites. Wear a sarong, stay discreet during ceremonies, and always ask permission before photographing.</p>
     `,
-    featuredImage: `${UNSPLASH_BASE}/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop`,
-    publishedAt: createMockTimestamp(new Date('2024-01-20')),
-    author: 'VF Images',
-    excerpt: 'Une exploration photographique de l\'île de Bali, de ses paysages à sa culture.',
-    excerptEn: 'A photographic exploration of the island of Bali, from its landscapes to its culture.',
+    featuredImage: `${UNSPLASH_BASE}/photo-1558618666-fcd25c85cd64?w=1200&q=85&auto=format&fit=crop`,
+    publishedAt: createMockTimestamp(new Date('2024-11-15')),
+    author: 'Franck Vinel',
+    excerpt: 'Exploration photographique des temples méconnus de Bali, loin des sentiers battus.',
+    excerptEn: 'Photographic exploration of Bali\'s lesser-known temples, off the beaten path.',
   },
   {
     id: 'blog-2',
-    slug: 'techniques-photo-bali',
-    title: 'Techniques de Photographie à Bali',
-    titleEn: 'Photography Techniques in Bali',
+    slug: 'lumiere-doree-ubud',
+    title: 'Lumière Dorée à Ubud',
+    titleEn: 'Golden Light in Ubud',
     content: `
-      <h2>La Lumière Dorée</h2>
-      <p>Les heures dorées à Bali offrent une lumière exceptionnelle. Le lever et le coucher du soleil créent des atmosphères magiques.</p>
+      <h2>La Magic Hour d'Ubud</h2>
+      <p>Ubud, le cœur culturel de Bali, offre des opportunités photographiques exceptionnelles durant la golden hour. Les rizières en terrasses de Tegallalang s'embrasent d'une lumière dorée qui transforme le paysage.</p>
       
-      <h2>Composition et Cadrage</h2>
-      <p>Utilisez les lignes des rizières et l'architecture traditionnelle pour créer des compositions dynamiques.</p>
+      <h2>Les Rizières de Tegallalang</h2>
+      <p>Ces terrasses vertes sculptées à flanc de colline sont iconiques. Au lever du soleil, la brume matinale crée une atmosphère mystique. Les agriculteurs commencent leur journée, ajoutant vie et échelle à vos compositions.</p>
       
-      <h2>Rencontres Humaines</h2>
-      <p>La photographie de portrait à Bali nécessite respect et sensibilité culturelle. Prenez le temps de créer une connexion avec vos sujets.</p>
+      <h2>Techniques de Lumière</h2>
+      <p>Exposez pour les hautes lumières et récupérez les ombres en post-production. Un filtre dégradé neutre peut aider à équilibrer le ciel et le paysage. N'hésitez pas à sous-exposer légèrement pour préserver les détails dans les nuages dorés.</p>
+      
+      <h2>Au-delà des Rizières</h2>
+      <p>La Forêt des Singes d'Ubud, les galeries d'art et les marchés traditionnels offrent également des sujets riches durant ces heures magiques. La lumière chaude sublime les textures et les couleurs.</p>
     `,
     contentEn: `
-      <h2>Golden Light</h2>
-      <p>Golden hours in Bali offer exceptional light. Sunrise and sunset create magical atmospheres.</p>
+      <h2>Ubud's Magic Hour</h2>
+      <p>Ubud, Bali's cultural heart, offers exceptional photographic opportunities during the golden hour. The Tegallalang rice terraces ignite with golden light that transforms the landscape.</p>
       
-      <h2>Composition and Framing</h2>
-      <p>Use the lines of rice fields and traditional architecture to create dynamic compositions.</p>
+      <h2>Tegallalang Rice Terraces</h2>
+      <p>These green terraces carved into the hillside are iconic. At sunrise, morning mist creates a mystical atmosphere. Farmers begin their day, adding life and scale to your compositions.</p>
       
-      <h2>Human Encounters</h2>
-      <p>Portrait photography in Bali requires respect and cultural sensitivity. Take time to create a connection with your subjects.</p>
+      <h2>Light Techniques</h2>
+      <p>Expose for the highlights and recover shadows in post-production. A neutral gradient filter can help balance sky and landscape. Don't hesitate to slightly underexpose to preserve details in golden clouds.</p>
+      
+      <h2>Beyond the Rice Fields</h2>
+      <p>Ubud's Monkey Forest, art galleries, and traditional markets also offer rich subjects during these magical hours. Warm light enhances textures and colors.</p>
     `,
-    featuredImage: `${UNSPLASH_BASE}/photo-1507003211169-0a1dd7228f2d?w=800&q=80&auto=format&fit=crop`,
-    publishedAt: createMockTimestamp(new Date('2024-02-15')),
-    author: 'VF Images',
-    excerpt: 'Conseils et techniques pour capturer la beauté de Bali.',
-    excerptEn: 'Tips and techniques for capturing the beauty of Bali.',
+    featuredImage: `${UNSPLASH_BASE}/photo-1555400038-63f5ba517a47?w=1200&q=85&auto=format&fit=crop`,
+    publishedAt: createMockTimestamp(new Date('2024-10-22')),
+    author: 'Franck Vinel',
+    excerpt: 'Guide complet pour photographier les rizières d\'Ubud durant la golden hour.',
+    excerptEn: 'Complete guide to photographing Ubud\'s rice fields during the golden hour.',
+  },
+  {
+    id: 'blog-3',
+    slug: 'portraits-balinais',
+    title: 'Portraits Balinais : Capturer l\'Âme',
+    titleEn: 'Balinese Portraits: Capturing the Soul',
+    content: `
+      <h2>L'Art du Portrait en Voyage</h2>
+      <p>Photographier les habitants de Bali est une expérience enrichissante qui demande sensibilité et respect. Chaque visage raconte une histoire, chaque regard porte une culture millénaire.</p>
+      
+      <h2>Créer la Connexion</h2>
+      <p>Le secret d'un bon portrait réside dans la relation avec votre sujet. Apprenez quelques mots en balinais, souriez, montrez vos photos. Cette connexion humaine transparaîtra dans vos images.</p>
+      
+      <h2>Lumière Naturelle et Composition</h2>
+      <p>Privilégiez la lumière naturelle diffuse. Les porches des maisons traditionnelles offrent une lumière idéale. Utilisez un téléobjectif moyen (85mm-135mm) pour créer une intimité sans être intrusif.</p>
+      
+      <h2>Les Artisans au Travail</h2>
+      <p>Les sculpteurs sur bois, les peintres de batik, les tisserands : Bali regorge d'artisans. Photographiez-les dans leur environnement de travail pour des portraits authentiques et contextualisés.</p>
+      
+      <h2>Ethique et Respect</h2>
+      <p>Demandez toujours la permission. Offrez de partager les photos avec vos sujets. Respectez un refus avec le sourire. La photographie doit être un échange, pas une prise.</p>
+    `,
+    contentEn: `
+      <h2>The Art of Travel Portraiture</h2>
+      <p>Photographing Bali's inhabitants is an enriching experience that requires sensitivity and respect. Each face tells a story, each gaze carries a millenary culture.</p>
+      
+      <h2>Creating Connection</h2>
+      <p>The secret to a good portrait lies in the relationship with your subject. Learn a few words in Balinese, smile, show your photos. This human connection will show through in your images.</p>
+      
+      <h2>Natural Light and Composition</h2>
+      <p>Favor diffused natural light. Porches of traditional houses offer ideal lighting. Use a medium telephoto lens (85mm-135mm) to create intimacy without being intrusive.</p>
+      
+      <h2>Artisans at Work</h2>
+      <p>Wood carvers, batik painters, weavers: Bali is full of artisans. Photograph them in their work environment for authentic and contextualized portraits.</p>
+      
+      <h2>Ethics and Respect</h2>
+      <p>Always ask permission. Offer to share photos with your subjects. Respect a refusal with a smile. Photography should be an exchange, not a taking.</p>
+    `,
+    featuredImage: `${UNSPLASH_BASE}/photo-1583829266276-0f8223666bc2?w=1200&q=85&auto=format&fit=crop`,
+    publishedAt: createMockTimestamp(new Date('2024-09-30')),
+    author: 'Franck Vinel',
+    excerpt: 'Techniques et approche éthique pour réaliser des portraits authentiques à Bali.',
+    excerptEn: 'Techniques and ethical approach to creating authentic portraits in Bali.',
+  },
+  {
+    id: 'blog-4',
+    slug: 'composition-paysage',
+    title: 'L\'Art de la Composition en Photographie de Paysage',
+    titleEn: 'The Art of Composition in Landscape Photography',
+    content: `
+      <h2>Les Règles Fondamentales</h2>
+      <p>La règle des tiers, les lignes directrices, l'équilibre : ces principes prennent tout leur sens dans les paysages balinais. Mais savoir quand les briser est tout aussi important.</p>
+      
+      <h2>Utiliser les Éléments Naturels</h2>
+      <p>Les palmiers comme cadres naturels, les courbes des rizières pour guider l'œil, les rochers volcaniques pour créer de la profondeur : Bali offre une palette infinie d'éléments compositionnels.</p>
+      
+      <h2>Créer de la Profondeur</h2>
+      <p>Utilisez des éléments au premier plan pour donner de la dimension. Une fleur de frangipane, des feuilles de palmier, des pierres : ces détails créent des couches qui enrichissent votre image.</p>
+      
+      <h2>Le Minimalisme Balinais</h2>
+      <p>Parfois, moins c'est plus. Un seul palmier contre un ciel dramatique, une pirogue solitaire sur l'océan : la simplicité peut créer un impact puissant.</p>
+      
+      <h2>La Patience du Photographe</h2>
+      <p>Attendez le bon moment : un rayon de lumière perçant les nuages, un oiseau en vol, un surfeur sur la vague. La patience transforme une bonne photo en une image exceptionnelle.</p>
+    `,
+    contentEn: `
+      <h2>Fundamental Rules</h2>
+      <p>The rule of thirds, leading lines, balance: these principles take on full meaning in Balinese landscapes. But knowing when to break them is just as important.</p>
+      
+      <h2>Using Natural Elements</h2>
+      <p>Palm trees as natural frames, rice field curves to guide the eye, volcanic rocks to create depth: Bali offers an infinite palette of compositional elements.</p>
+      
+      <h2>Creating Depth</h2>
+      <p>Use foreground elements to give dimension. A frangipani flower, palm leaves, stones: these details create layers that enrich your image.</p>
+      
+      <h2>Balinese Minimalism</h2>
+      <p>Sometimes less is more. A single palm tree against a dramatic sky, a solitary canoe on the ocean: simplicity can create powerful impact.</p>
+      
+      <h2>The Photographer's Patience</h2>
+      <p>Wait for the right moment: a ray of light piercing clouds, a bird in flight, a surfer on the wave. Patience transforms a good photo into an exceptional image.</p>
+    `,
+    featuredImage: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=1200&q=85&auto=format&fit=crop`,
+    publishedAt: createMockTimestamp(new Date('2024-08-18')),
+    author: 'Franck Vinel',
+    excerpt: 'Maîtriser les techniques de composition pour sublimer vos paysages balinais.',
+    excerptEn: 'Mastering composition techniques to enhance your Balinese landscapes.',
+  },
+  {
+    id: 'blog-5',
+    slug: 'noir-blanc-bali',
+    title: 'Bali en Noir et Blanc : Une Autre Dimension',
+    titleEn: 'Bali in Black and White: Another Dimension',
+    content: `
+      <h2>Voir en Monochrome</h2>
+      <p>Retirer la couleur, c'est révéler l'essence. Les textures, les contrastes, les formes prennent une nouvelle dimension. Bali en noir et blanc devient intemporel.</p>
+      
+      <h2>Les Sujets Idéaux</h2>
+      <p>Les temples anciens, les visages ridés des anciens, les sculptures en pierre : certains sujets appellent naturellement le noir et blanc. Les textures et les détails deviennent protagonistes.</p>
+      
+      <h2>Contraste et Dynamique</h2>
+      <p>Un bon noir et blanc nécessite une large gamme tonale. Cherchez les scènes avec des blancs purs et des noirs profonds. La lumière directe du matin ou du soir crée ces contrastes dramatiques.</p>
+      
+      <h2>Post-Production Créative</h2>
+      <p>En post-production, jouez avec les curseurs de couleurs pour contrôler les tonalités. Le filtre rouge assombrit les ciels bleus, le filtre vert éclaircit la végétation. Chaque couleur originale devient un outil de contrôle tonal.</p>
+      
+      <h2>L'Âme du Noir et Blanc</h2>
+      <p>Le monochrome révèle l'émotion, l'atmosphère, le caractère. C'est une vision intemporelle qui transcende la réalité colorée pour toucher quelque chose de plus profond.</p>
+    `,
+    contentEn: `
+      <h2>Seeing in Monochrome</h2>
+      <p>Removing color reveals essence. Textures, contrasts, shapes take on a new dimension. Bali in black and white becomes timeless.</p>
+      
+      <h2>Ideal Subjects</h2>
+      <p>Ancient temples, wrinkled faces of elders, stone sculptures: some subjects naturally call for black and white. Textures and details become protagonists.</p>
+      
+      <h2>Contrast and Dynamics</h2>
+      <p>Good black and white requires a wide tonal range. Look for scenes with pure whites and deep blacks. Direct morning or evening light creates these dramatic contrasts.</p>
+      
+      <h2>Creative Post-Production</h2>
+      <p>In post-production, play with color sliders to control tonalities. Red filter darkens blue skies, green filter lightens vegetation. Each original color becomes a tonal control tool.</p>
+      
+      <h2>The Soul of Black and White</h2>
+      <p>Monochrome reveals emotion, atmosphere, character. It's a timeless vision that transcends colorful reality to touch something deeper.</p>
+    `,
+    featuredImage: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=1200&q=85&auto=format&fit=crop`,
+    publishedAt: createMockTimestamp(new Date('2024-07-25')),
+    author: 'Franck Vinel',
+    excerpt: 'Découvrez comment le noir et blanc révèle une autre facette de Bali.',
+    excerptEn: 'Discover how black and white reveals another facet of Bali.',
+  },
+  {
+    id: 'blog-6',
+    slug: 'couchers-soleil-tropicaux',
+    title: 'Couchers de Soleil Tropicaux : Guide des Meilleurs Spots',
+    titleEn: 'Tropical Sunsets: Guide to the Best Spots',
+    content: `
+      <h2>La Magie des Crépuscules Balinais</h2>
+      <p>Bali est réputée pour ses couchers de soleil spectaculaires. Chaque soir, le ciel s'embrase de couleurs allant de l'orange au violet profond. Voici mes spots préférés.</p>
+      
+      <h2>Tanah Lot : L'Iconique</h2>
+      <p>Ce temple sur son rocher est le spot le plus photographié. Arrivez tôt pour trouver un bon emplacement. Utilisez un téléobjectif pour isoler le temple, ou un grand-angle pour inclure les rochers au premier plan.</p>
+      
+      <h2>Jimbaran Bay : Intimité</h2>
+      <p>Cette baie en arc de cercle offre des couchers de soleil plus intimes. Les bateaux de pêcheurs créent des silhouettes parfaites. La plage est moins fréquentée que Tanah Lot.</p>
+      
+      <h2>Mont Batur : Altitude</h2>
+      <p>Pour les courageux, le lever de soleil depuis le sommet du Mont Batur est inoubliable. Au crépuscule, les villages en contrebas s'illuminent créant un paysage féérique.</p>
+      
+      <h2>Réglages Techniques</h2>
+      <p>Exposez pour le ciel et récupérez les ombres. Bracketing d'exposition conseillé. Un trépied est essentiel. Attendez 15-20 minutes après le coucher : les couleurs les plus intenses arrivent souvent dans l'afterglow.</p>
+      
+      <h2>Au-delà du Soleil</h2>
+      <p>N'oubliez pas de vous retourner : le ciel opposé offre souvent des couleurs pastel magnifiques. Les nuages éclairés par en-dessous créent des formations spectaculaires.</p>
+    `,
+    contentEn: `
+      <h2>The Magic of Balinese Twilights</h2>
+      <p>Bali is renowned for its spectacular sunsets. Each evening, the sky ignites with colors ranging from orange to deep purple. Here are my favorite spots.</p>
+      
+      <h2>Tanah Lot: The Iconic</h2>
+      <p>This temple on its rock is the most photographed spot. Arrive early to find a good location. Use a telephoto lens to isolate the temple, or a wide-angle to include foreground rocks.</p>
+      
+      <h2>Jimbaran Bay: Intimacy</h2>
+      <p>This arc-shaped bay offers more intimate sunsets. Fishing boats create perfect silhouettes. The beach is less crowded than Tanah Lot.</p>
+      
+      <h2>Mount Batur: Altitude</h2>
+      <p>For the brave, sunrise from Mount Batur summit is unforgettable. At dusk, villages below light up creating a magical landscape.</p>
+      
+      <h2>Technical Settings</h2>
+      <p>Expose for the sky and recover shadows. Exposure bracketing advised. A tripod is essential. Wait 15-20 minutes after sunset: the most intense colors often come in the afterglow.</p>
+      
+      <h2>Beyond the Sun</h2>
+      <p>Don't forget to turn around: the opposite sky often offers magnificent pastel colors. Clouds lit from below create spectacular formations.</p>
+    `,
+    featuredImage: `${UNSPLASH_BASE}/photo-1518548419970-58e3b4079ab2?w=1200&q=85&auto=format&fit=crop`,
+    publishedAt: createMockTimestamp(new Date('2024-12-01')),
+    author: 'Franck Vinel',
+    excerpt: 'Les meilleurs spots et techniques pour capturer les couchers de soleil à Bali.',
+    excerptEn: 'The best spots and techniques to capture sunsets in Bali.',
   },
 ];
 

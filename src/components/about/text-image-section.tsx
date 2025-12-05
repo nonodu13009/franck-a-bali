@@ -41,22 +41,23 @@ export function TextImageSection({
         </p>
       </div>
 
-      {/* Image */}
+      {/* Image avec effets noir brillant */}
       <div
         ref={imageRef as React.RefObject<HTMLDivElement>}
-        className={`relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-1000 ${
+        className={`relative h-[400px] md:h-[500px] lg:h-[600px] rounded-sm overflow-hidden elevated transition-all duration-1000 hover:elevated-high hover:glow-subtle group ${
           imagePosition === 'right' ? 'lg:order-2' : 'lg:order-1'
         } ${imageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-jungle/20 to-transparent z-10" />
         <Image
           src={imageUrl}
           alt={imageAlt}
           fill
-          className="object-cover hover:scale-105 transition-transform duration-700"
+          className="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-700"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={priority}
         />
+        {/* Bordure subtile */}
+        <div className="absolute inset-0 rounded-sm pointer-events-none border border-white/5 group-hover:border-white/10 transition-colors duration-500" />
       </div>
     </section>
   );

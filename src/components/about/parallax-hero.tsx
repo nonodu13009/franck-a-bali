@@ -14,7 +14,7 @@ export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
   const { elementRef: contentRef, offset: contentOffset } = useParallax({ speed: 0.1 });
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden" data-hero-section>
       {/* Background Layer - Parallax lent */}
       <div
         ref={bgRef as React.RefObject<HTMLDivElement>}
@@ -24,7 +24,8 @@ export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
           willChange: 'transform',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 via-secondary/50 to-primary-dark/70 z-10" />
+        {/* Overlay gradient noir brillant subtil */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-10" />
         <Image
           src={imageUrl}
           alt="Hero Background"
@@ -34,31 +35,33 @@ export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
           sizes="100vw"
           quality={90}
         />
+        {/* Vignettage comme le carousel */}
+        <div className="absolute inset-0 z-20 shadow-[inset_0_0_120px_rgba(0,0,0,0.6)]" />
       </div>
 
       {/* Content Layer - Parallax normal */}
       <div
         ref={contentRef as React.RefObject<HTMLDivElement>}
-        className="relative z-20 text-center px-6 max-w-5xl mx-auto"
+        className="relative z-30 text-center px-6 max-w-5xl mx-auto"
         style={{
           transform: `translateY(${contentOffset}px)`,
           willChange: 'transform',
         }}
       >
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 animate-fade-in">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 animate-fade-in elevated-high">
           {title}
         </h1>
-        <p className="font-serif text-xl md:text-2xl lg:text-3xl text-primary-foreground/90 italic max-w-3xl mx-auto animate-fade-in-delay">
+        <p className="font-serif text-xl md:text-2xl lg:text-3xl text-white/90 italic max-w-3xl mx-auto animate-fade-in-delay">
           {subtitle}
         </p>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <div className="flex flex-col items-center gap-2 text-primary-foreground/70">
+      {/* Scroll Indicator avec glow */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 animate-bounce">
+        <div className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors">
           <span className="text-sm uppercase tracking-widest">Découvrir</span>
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 glow-subtle"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
