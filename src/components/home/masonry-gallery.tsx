@@ -148,31 +148,31 @@ function MasonryImageCard({ image, index, positionMobile, positionTablet, positi
   const [imageError, setImageError] = useState(false);
   const fallbackImage = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80';
 
-  // Générer les classes Tailwind complètes pour chaque breakpoint
+  // Générer les classes Tailwind pour les spans (responsive)
   const getSpanClasses = () => {
     // Mobile (2 cols)
     const mobileCol = positionMobile.colSpan === 2 ? 'col-span-2' : 'col-span-1';
     const mobileRow = positionMobile.rowSpan === 2 ? 'row-span-2' : 'row-span-1';
-    const mobileColStart = positionMobile.colStart ? `col-start-${positionMobile.colStart}` : '';
-    const mobileRowStart = positionMobile.rowStart ? `row-start-${positionMobile.rowStart}` : '';
     
     // Tablet (4 cols)
     const tabletCol = positionTablet.colSpan === 2 ? 'md:col-span-2' : 'md:col-span-1';
     const tabletRow = positionTablet.rowSpan === 2 ? 'md:row-span-2' : 'md:row-span-1';
-    const tabletColStart = positionTablet.colStart ? `md:col-start-${positionTablet.colStart}` : '';
-    const tabletRowStart = positionTablet.rowStart ? `md:row-start-${positionTablet.rowStart}` : '';
     
     // Desktop (6 cols)
     const desktopCol = positionDesktop.colSpan === 2 ? 'lg:col-span-2' : 'lg:col-span-1';
     const desktopRow = positionDesktop.rowSpan === 2 ? 'lg:row-span-2' : 'lg:row-span-1';
-    const desktopColStart = positionDesktop.colStart ? `lg:col-start-${positionDesktop.colStart}` : '';
-    const desktopRowStart = positionDesktop.rowStart ? `lg:row-start-${positionDesktop.rowStart}` : '';
     
-    return [
-      mobileCol, mobileRow, mobileColStart, mobileRowStart,
-      tabletCol, tabletRow, tabletColStart, tabletRowStart,
-      desktopCol, desktopRow, desktopColStart, desktopRowStart,
-    ].filter(Boolean).join(' ');
+    return `${mobileCol} ${mobileRow} ${tabletCol} ${tabletRow} ${desktopCol} ${desktopRow}`;
+  };
+
+  // Styles inline pour les positions de départ (calculées dynamiquement)
+  const getInlineStyles = (): React.CSSProperties => {
+    return {
+      gridColumnStart: positionMobile.colStart || undefined,
+      gridRowStart: positionMobile.rowStart || undefined,
+      // Pour tablet et desktop, on utilise des media queries CSS custom si nécessaire
+      // Pour l'instant, on laisse CSS Grid gérer automatiquement le placement
+    };
   };
 
   // Lazy loading : priority pour les 3 premières images, lazy pour le reste
@@ -181,6 +181,7 @@ function MasonryImageCard({ image, index, positionMobile, positionTablet, positi
   return (
     <div
       className={`group relative overflow-hidden bg-black ${getSpanClasses()}`}
+      style={getInlineStyles()}
     >
       <Image
         src={imageError ? fallbackImage : image.src}
