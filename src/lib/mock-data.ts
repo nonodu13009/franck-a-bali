@@ -393,7 +393,7 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>Ethics and Respect</h2>
       <p>Always ask permission. Offer to share photos with your subjects. Respect a refusal with a smile. Photography should be an exchange, not a taking.</p>
     `,
-    featuredImage: `${UNSPLASH_BASE}/photo-1583829266276-0f8223666bc2?w=1200&q=85&auto=format&fit=crop`,
+    featuredImage: `${UNSPLASH_BASE}/photo-1552733407-5d5c46c3bb3b?w=1200&q=85&auto=format&fit=crop`,
     publishedAt: createMockTimestamp(new Date('2024-09-30')),
     author: 'Franck Vinel',
     excerpt: 'Techniques et approche éthique pour réaliser des portraits authentiques à Bali.',
@@ -479,7 +479,7 @@ export const mockBlogPosts: BlogPost[] = [
       <h2>The Soul of Black and White</h2>
       <p>Monochrome reveals emotion, atmosphere, character. It's a timeless vision that transcends colorful reality to touch something deeper.</p>
     `,
-    featuredImage: `${UNSPLASH_BASE}/photo-1571896349842-33c89424de2d?w=1200&q=85&auto=format&fit=crop`,
+    featuredImage: `${UNSPLASH_BASE}/photo-1604999565976-8913ad2ddb7c?w=1200&q=85&auto=format&fit=crop`,
     publishedAt: createMockTimestamp(new Date('2024-07-25')),
     author: 'Franck Vinel',
     excerpt: 'Découvrez comment le noir et blanc révèle une autre facette de Bali.',
