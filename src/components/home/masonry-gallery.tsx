@@ -15,7 +15,7 @@ interface MasonryGalleryProps {
 
 export function MasonryGallery({ images }: MasonryGalleryProps) {
   return (
-    <section className="bg-black">
+    <section className="bg-black pt-16 md:pt-20 lg:pt-24">
       {/* Grille bento dense sans espaces */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px]">
         {images.map((image, index) => (
