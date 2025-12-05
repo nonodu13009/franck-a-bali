@@ -20,95 +20,48 @@ interface GridPosition {
   rowStart?: number;
 }
 
-// Algorithme de placement qui garantit un remplissage complet sans vides
+// Pattern simple qui garantit un remplissage complet
+// Pour 6 colonnes : pattern de 6 positions qui se répète parfaitement
+const BENTO_PATTERN_6: GridPosition[] = [
+  { colSpan: 2, rowSpan: 2 }, // 4 cellules
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 2, rowSpan: 1 }, // 2 cellules
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  // Total: 10 cellules par cycle, mais on ajuste pour 6 cols
+];
+
+// Pattern optimisé pour remplir 6 colonnes sans vides
+// Chaque cycle de 6 images remplit exactement 6 colonnes
+const OPTIMIZED_PATTERN_6: GridPosition[] = [
+  { colSpan: 2, rowSpan: 2 }, // 4 cellules
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 2, rowSpan: 1 }, // 2 cellules
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+];
+
+const OPTIMIZED_PATTERN_4: GridPosition[] = [
+  { colSpan: 2, rowSpan: 2 }, // 4 cellules
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 2, rowSpan: 1 }, // 2 cellules
+];
+
+const OPTIMIZED_PATTERN_2: GridPosition[] = [
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+  { colSpan: 1, rowSpan: 1 }, // 1 cellule
+];
+
 function calculateGridPositions(images: MasonryImage[], cols: number): GridPosition[] {
-  const positions: GridPosition[] = [];
-  const grid: boolean[][] = [];
-  const maxRows = 100; // Limite de sécurité
+  const pattern = cols === 6 ? OPTIMIZED_PATTERN_6 : cols === 4 ? OPTIMIZED_PATTERN_4 : OPTIMIZED_PATTERN_2;
   
-  // Initialiser la grille (toutes les cellules libres)
-  for (let row = 0; row < maxRows; row++) {
-    grid[row] = new Array(cols).fill(false);
-  }
-  
-  // Fonction pour vérifier si une position est disponible
-  const isPositionAvailable = (col: number, row: number, colSpan: number, rowSpan: number): boolean => {
-    if (col + colSpan > cols) return false;
-    if (row + rowSpan > maxRows) return false;
-    
-    for (let r = row; r < row + rowSpan; r++) {
-      for (let c = col; c < col + colSpan; c++) {
-        if (grid[r][c]) return false;
-      }
-    }
-    return true;
-  };
-  
-  // Fonction pour marquer une position comme occupée
-  const markPosition = (col: number, row: number, colSpan: number, rowSpan: number) => {
-    for (let r = row; r < row + rowSpan; r++) {
-      for (let c = col; c < col + colSpan; c++) {
-        grid[r][c] = true;
-      }
-    }
-  };
-  
-  // Fonction pour trouver la première position disponible
-  const findAvailablePosition = (colSpan: number, rowSpan: number): { col: number; row: number } | null => {
-    for (let row = 0; row < maxRows; row++) {
-      for (let col = 0; col <= cols - colSpan; col++) {
-        if (isPositionAvailable(col, row, colSpan, rowSpan)) {
-          return { col, row };
-        }
-      }
-    }
-    return null;
-  };
-  
-  // Déterminer la taille de chaque image selon son orientation
-  const getImageSize = (image: MasonryImage, index: number): { colSpan: number; rowSpan: number } => {
-    // Pattern varié pour créer un effet bento harmonieux
-    const patternIndex = index % 12;
-    
-    // Pattern qui garantit un remplissage efficace
-    const patterns: { colSpan: number; rowSpan: number }[] = [
-      { colSpan: 2, rowSpan: 2 }, // Grand carré
-      { colSpan: 1, rowSpan: 1 }, // Petit
-      { colSpan: 1, rowSpan: 1 }, // Petit
-      { colSpan: 2, rowSpan: 1 }, // Large horizontal
-      { colSpan: 1, rowSpan: 2 }, // Vertical
-      { colSpan: 1, rowSpan: 1 }, // Petit
-      { colSpan: 1, rowSpan: 1 }, // Petit
-      { colSpan: 1, rowSpan: 1 }, // Petit
-      { colSpan: 1, rowSpan: 1 }, // Petit
-      { colSpan: 2, rowSpan: 1 }, // Large horizontal
-      { colSpan: 1, rowSpan: 2 }, // Vertical
-      { colSpan: 1, rowSpan: 1 }, // Petit
-    ];
-    
-    return patterns[patternIndex];
-  };
-  
-  // Placer chaque image
-  for (let i = 0; i < images.length; i++) {
-    const size = getImageSize(images[i], i);
-    const position = findAvailablePosition(size.colSpan, size.rowSpan);
-    
-    if (position) {
-      markPosition(position.col, position.row, size.colSpan, size.rowSpan);
-      positions.push({
-        colSpan: size.colSpan,
-        rowSpan: size.rowSpan,
-        colStart: position.col + 1, // CSS Grid est 1-indexed
-        rowStart: position.row + 1,
-      });
-    } else {
-      // Fallback si pas de position trouvée (ne devrait pas arriver)
-      positions.push({ colSpan: 1, rowSpan: 1 });
-    }
-  }
-  
-  return positions;
+  return images.map((_, index) => {
+    const patternIndex = index % pattern.length;
+    return pattern[patternIndex];
+  });
 }
 
 export function MasonryGallery({ images }: MasonryGalleryProps) {
