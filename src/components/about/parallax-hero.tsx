@@ -1,43 +1,19 @@
 'use client';
 
-import Image from 'next/image';
 import { useParallax } from '@/lib/hooks/use-parallax.hook';
 
 interface ParallaxHeroProps {
   title: string;
   subtitle: string;
-  imageUrl: string;
+  imageUrl: string; // Gardé pour compatibilité mais non utilisé
 }
 
-export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
-  const { elementRef: bgRef, offset: bgOffset } = useParallax({ speed: 0.3 });
+export function ParallaxHero({ title, subtitle }: ParallaxHeroProps) {
   const { elementRef: contentRef, offset: contentOffset } = useParallax({ speed: 0.1 });
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black" data-hero-section>
-      {/* Background Layer - Parallax lent */}
-      <div
-        ref={bgRef as React.RefObject<HTMLDivElement>}
-        className="absolute inset-0 z-0"
-        style={{
-          transform: `translateY(${bgOffset}px)`,
-          willChange: 'transform',
-        }}
-      >
-        <Image
-          src={imageUrl}
-          alt="Hero Background"
-          fill
-          className="object-cover opacity-30"
-          priority
-          sizes="100vw"
-          quality={90}
-        />
-        {/* Vignettage noir très fort */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-      </div>
-
-      {/* Content Layer - Parallax normal - SIMPLE */}
+      {/* Content Layer - Fond noir pur sans image */}
       <div
         ref={contentRef as React.RefObject<HTMLDivElement>}
         className="relative z-30 text-center px-6 max-w-5xl mx-auto"
