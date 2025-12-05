@@ -2,6 +2,12 @@ import { ref, getDownloadURL } from 'firebase/storage';
 import { storage } from './config';
 
 export async function getImageUrl(path: string): Promise<string | null> {
+  // Si storage n'est pas initialisé, retourner null
+  if (!storage) {
+    console.warn('[Storage] Firebase Storage not configured');
+    return null;
+  }
+
   try {
     const imageRef = ref(storage, path);
     const url = await getDownloadURL(imageRef);
