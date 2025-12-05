@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getBlogPostBySlug, getBlogPosts } from '@/lib/firebase/firestore';
+import { VideoPlayer } from '@/components/blog/video-player';
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -80,6 +81,14 @@ export default async function BlogPostPage({
             priority
           />
         </div>
+      )}
+
+      {post.videoUrl && (
+        <VideoPlayer
+          videoUrl={post.videoUrl}
+          ratio={post.videoRatio}
+          title={title}
+        />
       )}
 
       <div

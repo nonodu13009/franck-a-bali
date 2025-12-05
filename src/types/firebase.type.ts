@@ -39,6 +39,8 @@ export interface BlogPost {
   content: string;
   contentEn: string;
   featuredImage?: string;
+  videoUrl?: string;           // URL de la vidéo (MP4/MOV/WEBM)
+  videoRatio?: '16:9' | '9:16'; // Ratio pour affichage optimal
   publishedAt: Timestamp;
   author: string;
   excerpt?: string;

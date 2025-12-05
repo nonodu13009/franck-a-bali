@@ -284,6 +284,72 @@ export const mockImages: Image[] = [
 export const mockBlogPosts: BlogPost[] = [
   {
     id: 'blog-1',
+    slug: 'bali-en-mouvement',
+    title: 'Bali en Mouvement : Capturer la Vie',
+    titleEn: 'Bali in Motion: Capturing Life',
+    content: `
+      <h2>La Vidéo comme Medium</h2>
+      <p>Après des années de photographie à Bali, je me suis tourné vers la vidéo pour capturer l'essence même du mouvement. Les danseurs balinais, les vagues de l'océan, le vent dans les rizières - tout prend une autre dimension en mouvement.</p>
+      
+      <h2>Technique et Équipement</h2>
+      <p>Pour cette vidéo, j'ai utilisé un stabilisateur et filmé en 4K à 60fps pour permettre des ralentis fluides. La lumière naturelle de Bali est parfaite pour la vidéo - douce et dorée durant la golden hour.</p>
+      
+      <h2>Le Rythme de Bali</h2>
+      <p>Cette île a son propre rythme, entre les cérémonies traditionnelles et la vie quotidienne. La vidéo permet de capturer cette temporalité unique que la photo ne peut qu'effleurer.</p>
+    `,
+    contentEn: `
+      <h2>Video as a Medium</h2>
+      <p>After years of photography in Bali, I turned to video to capture the very essence of movement. Balinese dancers, ocean waves, wind in the rice fields - everything takes on another dimension in motion.</p>
+      
+      <h2>Technique and Equipment</h2>
+      <p>For this video, I used a stabilizer and filmed in 4K at 60fps to allow smooth slow motion. Bali's natural light is perfect for video - soft and golden during the golden hour.</p>
+      
+      <h2>The Rhythm of Bali</h2>
+      <p>This island has its own rhythm, between traditional ceremonies and daily life. Video captures this unique temporality that photography can only touch upon.</p>
+    `,
+    featuredImage: `${UNSPLASH_BASE}/photo-1537996194471-e657df975ab4?w=1200&q=85&auto=format&fit=crop`,
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    videoRatio: '16:9',
+    publishedAt: createMockTimestamp(new Date('2024-12-01')),
+    author: 'Franck Vinel',
+    excerpt: 'Découvrez Bali à travers le mouvement et la vidéo, une nouvelle façon de raconter l\'histoire de cette île magique.',
+    excerptEn: 'Discover Bali through movement and video, a new way to tell the story of this magical island.',
+  },
+  {
+    id: 'blog-2',
+    slug: 'portrait-vertical-instagram',
+    title: 'Portrait Vertical : L\'Art du Format Instagram',
+    titleEn: 'Vertical Portrait: The Art of Instagram Format',
+    content: `
+      <h2>Le Format 9:16</h2>
+      <p>Le format vertical 9:16 d'Instagram Stories et Reels a révolutionné la façon dont nous créons du contenu visuel. Pour les portraits, c'est un format naturel qui met en valeur le sujet.</p>
+      
+      <h2>Composition Verticale</h2>
+      <p>En vidéo verticale, la composition change complètement. Le sujet occupe l'écran, créant une intimité immédiate. J'ai filmé ce portrait en utilisant la règle des tiers adaptée au format vertical.</p>
+      
+      <h2>Partage Social</h2>
+      <p>Ce format est optimisé pour le mobile, là où la majorité de mon audience découvre mon travail. La vidéo verticale s'intègre naturellement dans l'expérience de scroll.</p>
+    `,
+    contentEn: `
+      <h2>The 9:16 Format</h2>
+      <p>Instagram Stories and Reels' 9:16 vertical format has revolutionized how we create visual content. For portraits, it's a natural format that highlights the subject.</p>
+      
+      <h2>Vertical Composition</h2>
+      <p>In vertical video, composition changes completely. The subject fills the screen, creating immediate intimacy. I filmed this portrait using the rule of thirds adapted to vertical format.</p>
+      
+      <h2>Social Sharing</h2>
+      <p>This format is optimized for mobile, where most of my audience discovers my work. Vertical video naturally integrates into the scrolling experience.</p>
+    `,
+    featuredImage: `${UNSPLASH_BASE}/photo-1551244072-5d12893278ab?w=900&q=85&auto=format&fit=crop`,
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+    videoRatio: '9:16',
+    publishedAt: createMockTimestamp(new Date('2024-11-28')),
+    author: 'Franck Vinel',
+    excerpt: 'Explorer le format vertical pour créer des portraits vidéo captivants adaptés aux réseaux sociaux.',
+    excerptEn: 'Exploring vertical format to create captivating video portraits adapted for social media.',
+  },
+  {
+    id: 'blog-3',
     slug: 'temples-caches-bali',
     title: 'Les Temples Cachés de Bali',
     titleEn: 'Hidden Temples of Bali',
@@ -320,7 +386,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerptEn: 'Photographic exploration of Bali\'s lesser-known temples, off the beaten path.',
   },
   {
-    id: 'blog-2',
+    id: 'blog-4',
     slug: 'lumiere-doree-ubud',
     title: 'Lumière Dorée à Ubud',
     titleEn: 'Golden Light in Ubud',

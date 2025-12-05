@@ -1,48 +1,76 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { BaliCarousel } from '@/components/gallery/bali-carousel';
+import { HeroSection } from '@/components/home/hero-section';
+import { MasonryGallery } from '@/components/home/masonry-gallery';
 
-const BALI_IMAGES = [
+// Image hero plein écran
+const HERO_IMAGE = {
+  src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=90&auto=format&fit=crop',
+  alt: 'Majestic Bali temple with traditional architecture',
+};
+
+// Images masonry - mix portrait, paysage, et pleine largeur
+const MASONRY_IMAGES = [
   {
-    src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=90&auto=format&fit=crop',
-    alt: 'Majestic Bali temple with traditional architecture',
-    title: 'Sacred Temples'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1920&q=90&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1200&q=85&auto=format&fit=crop',
     alt: 'Iconic Bali rice terraces at sunrise',
-    title: 'Rice Terraces'
+    orientation: 'landscape' as const,
   },
   {
-    src: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1920&q=90&auto=format&fit=crop',
-    alt: 'Stunning Bali beach sunset with surfers',
-    title: 'Golden Sunsets'
+    src: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=900&q=85&auto=format&fit=crop',
+    alt: 'Stunning Bali beach sunset',
+    orientation: 'portrait' as const,
   },
   {
-    src: 'https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?w=1920&q=90&auto=format&fit=crop',
-    alt: 'Traditional Balinese gate and architecture',
-    title: 'Cultural Heritage'
+    src: 'https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?w=900&q=85&auto=format&fit=crop',
+    alt: 'Traditional Balinese gate',
+    orientation: 'portrait' as const,
   },
   {
-    src: 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1920&q=90&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1600&q=85&auto=format&fit=crop',
     alt: 'Crystal clear turquoise Bali ocean',
-    title: 'Tropical Paradise'
+    orientation: 'wide' as const,
   },
   {
-    src: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?w=1920&q=90&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?w=1200&q=85&auto=format&fit=crop',
     alt: 'Hidden waterfall in Bali jungle',
-    title: 'Hidden Waterfalls'
+    orientation: 'landscape' as const,
   },
   {
-    src: 'https://images.unsplash.com/photo-1531761535209-180857e963b9?w=1920&q=90&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1531761535209-180857e963b9?w=900&q=85&auto=format&fit=crop',
     alt: 'Lush green Bali jungle landscape',
-    title: 'Jungle Adventures'
+    orientation: 'portrait' as const,
   },
   {
-    src: 'https://images.unsplash.com/photo-1532186651327-6ac23687d189?w=1920&q=90&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1532186651327-6ac23687d189?w=1200&q=85&auto=format&fit=crop',
     alt: 'Sacred Bali temple grounds at sunset',
-    title: 'Spiritual Journey'
-  }
+    orientation: 'landscape' as const,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1551244072-5d12893278ab?w=900&q=85&auto=format&fit=crop',
+    alt: 'Balinese traditional dancer',
+    orientation: 'portrait' as const,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=1600&q=85&auto=format&fit=crop',
+    alt: 'Panoramic view of Bali coastline',
+    orientation: 'wide' as const,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1578991624414-276ef23a534f?w=1200&q=85&auto=format&fit=crop',
+    alt: 'Traditional Bali temple ceremony',
+    orientation: 'landscape' as const,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1602659370191-d6a06d4c005b?w=900&q=85&auto=format&fit=crop',
+    alt: 'Bali sunset over the ocean',
+    orientation: 'portrait' as const,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=1200&q=85&auto=format&fit=crop',
+    alt: 'Ancient stone carvings in Bali',
+    orientation: 'landscape' as const,
+  },
 ];
 
 export async function generateMetadata({
@@ -60,6 +88,11 @@ export async function generateMetadata({
 }
 
 export default async function HomePage() {
-  return <BaliCarousel images={BALI_IMAGES} autoPlayInterval={5000} />;
+  return (
+    <>
+      <HeroSection imageUrl={HERO_IMAGE.src} imageAlt={HERO_IMAGE.alt} />
+      <MasonryGallery images={MASONRY_IMAGES} />
+    </>
+  );
 }
 

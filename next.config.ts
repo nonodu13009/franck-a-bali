@@ -5,6 +5,14 @@ const withNextIntl = createNextIntlPlugin('./src/lib/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   images: {
+    // Formats modernes prioritaires pour optimisation automatique
+    formats: ['image/avif', 'image/webp'],
+    // Tailles d'appareils pour générer srcset responsive
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // Petites tailles pour icônes et thumbnails
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Cache 1 an pour les images optimisées
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',
@@ -17,6 +25,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'commondatastorage.googleapis.com',
       },
     ],
   },
