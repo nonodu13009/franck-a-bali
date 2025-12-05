@@ -24,8 +24,8 @@ export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
           willChange: 'transform',
         }}
       >
-        {/* Overlay gradient noir brillant subtil */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-10" />
+        {/* Overlay gradient noir très opaque */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background z-10" />
         <Image
           src={imageUrl}
           alt="Hero Background"
@@ -35,8 +35,8 @@ export function ParallaxHero({ title, subtitle, imageUrl }: ParallaxHeroProps) {
           sizes="100vw"
           quality={90}
         />
-        {/* Vignettage comme le carousel */}
-        <div className="absolute inset-0 z-20 shadow-[inset_0_0_120px_rgba(0,0,0,0.6)]" />
+        {/* Vignettage prononcé comme le carousel */}
+        <div className="absolute inset-0 z-20 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)]" />
       </div>
 
       {/* Content Layer - Parallax normal */}

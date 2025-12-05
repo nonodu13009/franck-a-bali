@@ -105,8 +105,8 @@ export default async function AboutPage({
         imageUrl="https://images.unsplash.com/photo-1555217851-6141535bd771?w=1920&q=80&auto=format&fit=crop"
       />
 
-      {/* Story Sections avec espacement variable */}
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Story Sections avec espacement variable - FOND NOIR UNIFORME */}
+      <div className="max-w-7xl mx-auto px-6 bg-background">
         {/* Section 1 - Plus d'espace après hero */}
         <div className="pt-32 pb-20">
           <TextImageSection
@@ -130,8 +130,8 @@ export default async function AboutPage({
           </div>
         </div>
 
-        {/* Section 2 avec fond gradient subtil */}
-        <div className="py-20 -mx-6 px-6 gradient-shine rounded-lg">
+        {/* Section 2 - FOND NOIR sans gradient-shine */}
+        <div className="py-20">
           <TextImageSection
             text={sections[1].text}
             imageUrl={sections[1].image}
@@ -163,28 +163,31 @@ export default async function AboutPage({
         </div>
       </div>
 
-      {/* Final CTA avec gradient tropical et glass effect */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-ocean-light to-accent opacity-95" />
-        <div className="absolute inset-0 glass-effect-strong" />
+      {/* Final CTA - FOND NOIR avec glass effect */}
+      <section className="relative py-32 overflow-hidden bg-background">
+        {/* Bordure supérieure brillante */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        
+        {/* Fond avec gradient noir subtil */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background-elevated via-background to-background-elevated opacity-50" />
         
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center space-y-8">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white elevated-high">
             {t('ctaTitle')}
           </h2>
-          <p className="text-xl md:text-2xl text-primary-foreground/90">
+          <p className="text-xl md:text-2xl text-foreground/90">
             {t('ctaSubtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <a
               href={`/${locale}/gallery`}
-              className="px-8 py-4 bg-accent-warm text-white rounded-full font-medium hover:bg-accent hover:scale-105 transition-all shadow-lg elevated"
+              className="px-8 py-4 glass-effect-strong text-white rounded-full font-medium hover:bg-accent/20 hover:scale-105 transition-all elevated glow-subtle"
             >
               {t('ctaGallery')}
             </a>
             <a
               href={`/${locale}/shop`}
-              className="px-8 py-4 glass-effect text-primary-foreground rounded-full font-medium hover:glass-effect-strong transition-all"
+              className="px-8 py-4 glass-effect text-foreground rounded-full font-medium hover:glass-effect-strong transition-all elevated"
             >
               {t('ctaShop')}
             </a>
