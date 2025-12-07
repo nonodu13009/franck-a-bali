@@ -1,6 +1,7 @@
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
 import { getFirestore, Firestore } from 'firebase/firestore';
 import { getStorage, FirebaseStorage } from 'firebase/storage';
+import { getAuth, Auth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -19,6 +20,7 @@ const isFirebaseConfigured = Object.values(firebaseConfig).every(
 let app: FirebaseApp | null = null;
 let db: Firestore | null = null;
 let storage: FirebaseStorage | null = null;
+let auth: Auth | null = null;
 
 // N'initialiser Firebase que si la config est complète
 if (isFirebaseConfigured) {
@@ -31,10 +33,11 @@ if (!getApps().length) {
   if (app) {
     db = getFirestore(app);
     storage = getStorage(app);
+    auth = getAuth(app);
   }
 } else {
   console.log('[Firebase] Configuration incomplète - Mode mock data activé');
 }
 
-export { db, storage };
+export { db, storage, auth };
 

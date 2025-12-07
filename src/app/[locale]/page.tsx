@@ -2,15 +2,15 @@ import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/home/hero-section';
 import { MasonryGallery } from '@/components/home/masonry-gallery';
+import { getHomepageData } from '@/lib/firebase/admin-firestore';
 
-// Image hero plein écran
-const HERO_IMAGE = {
+// Images par défaut si aucune donnée dans Firestore
+const DEFAULT_HERO_IMAGE = {
     src: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=90&auto=format&fit=crop',
     alt: 'Majestic Bali temple with traditional architecture',
 };
 
-// Images masonry - mix portrait, paysage, et pleine largeur
-const MASONRY_IMAGES = [
+const DEFAULT_MASONRY_IMAGES = [
   {
     src: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1200&q=85&auto=format&fit=crop',
     alt: 'Iconic Bali rice terraces at sunrise',
@@ -88,10 +88,33 @@ export async function generateMetadata({
 }
 
 export default async function HomePage() {
+  // Charger les données depuis Firestore
+  let heroImage = DEFAULT_HERO_IMAGE;
+  let masonryImages = DEFAULT_MASONRY_IMAGES;
+
+  try {
+    const homepageData = await getHomepageData();
+    if (homepageData) {
+      if (homepageData.heroImage?.src) {
+        heroImage = homepageData.heroImage;
+      }
+      if (homepageData.masonryImages && homepageData.masonryImages.length > 0) {
+        masonryImages = homepageData.masonryImages.map(img => ({
+          src: img.src,
+          alt: img.alt,
+          orientation: img.orientation,
+        }));
+      }
+    }
+  } catch (error) {
+    console.error('Error loading homepage data:', error);
+    // Utiliser les valeurs par défaut en cas d'erreur
+  }
+
   return (
     <>
-      <HeroSection imageUrl={HERO_IMAGE.src} imageAlt={HERO_IMAGE.alt} />
-      <MasonryGallery images={MASONRY_IMAGES} />
+      <HeroSection imageUrl={heroImage.src} imageAlt={heroImage.alt} />
+      <MasonryGallery images={masonryImages} />
     </>
   );
 }
