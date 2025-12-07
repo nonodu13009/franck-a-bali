@@ -83,10 +83,10 @@ export function ImageLightbox({
             className={cn(
               'relative w-full h-full max-w-7xl max-h-[90vh]',
               'flex items-center justify-center',
-              'transition-all duration-300 ease-out',
+              'transition-all duration-500 ease-out',
               isAnimating
                 ? 'opacity-100 scale-100'
-                : 'opacity-0 scale-95'
+                : 'opacity-0 scale-90'
             )}
             onMouseEnter={() => {
               if (description) {
