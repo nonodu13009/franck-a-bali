@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import * as Dialog from '@radix-ui/react-dialog';
 import { cn } from '@/lib/utils';
@@ -22,6 +22,7 @@ export function ImageLightbox({
 }: ImageLightboxProps) {
   const [showDescription, setShowDescription] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -29,12 +30,21 @@ export function ImageLightbox({
       // Empêcher le scroll du body quand le lightbox est ouvert
       document.body.style.overflow = 'hidden';
     } else {
-      // Réactiver le scroll
+      // Réactiver le scroll et réinitialiser l'état
       document.body.style.overflow = '';
+      setShowDescription(false);
+      // Nettoyer le timeout si le lightbox se ferme
+      if (touchTimeoutRef.current) {
+        clearTimeout(touchTimeoutRef.current);
+        touchTimeoutRef.current = null;
+      }
     }
 
     return () => {
       document.body.style.overflow = '';
+      if (touchTimeoutRef.current) {
+        clearTimeout(touchTimeoutRef.current);
+      }
     };
   }, [isOpen]);
 
@@ -78,12 +88,32 @@ export function ImageLightbox({
                 ? 'opacity-100 scale-100'
                 : 'opacity-0 scale-95'
             )}
-            onMouseEnter={() => description && setShowDescription(true)}
-            onMouseLeave={() => setShowDescription(false)}
-            onTouchStart={() => description && setShowDescription(true)}
-            onTouchEnd={() => {
-              // Délai pour permettre la lecture du texte sur mobile
-              setTimeout(() => setShowDescription(false), 3000);
+            onMouseEnter={() => {
+              if (description) {
+                setShowDescription(true);
+                // Annuler le timeout mobile si présent
+                if (touchTimeoutRef.current) {
+                  clearTimeout(touchTimeoutRef.current);
+                  touchTimeoutRef.current = null;
+                }
+              }
+            }}
+            onMouseLeave={() => {
+              setShowDescription(false);
+            }}
+            onTouchStart={() => {
+              if (description) {
+                setShowDescription(true);
+                // Nettoyer le timeout précédent s'il existe
+                if (touchTimeoutRef.current) {
+                  clearTimeout(touchTimeoutRef.current);
+                }
+                // Délai de 3 secondes pour permettre la lecture du texte sur mobile
+                touchTimeoutRef.current = setTimeout(() => {
+                  setShowDescription(false);
+                  touchTimeoutRef.current = null;
+                }, 3000);
+              }
             }}
           >
             {/* Image */}
@@ -130,15 +160,20 @@ export function ImageLightbox({
               <div
                 className={cn(
                   'absolute bottom-0 left-0 right-0',
-                  'bg-gradient-to-t from-black/90 via-black/70 to-transparent',
-                  'px-6 py-8 md:px-8 md:py-10',
-                  'transition-all duration-300 ease-out',
+                  'bg-black/60 backdrop-blur-sm',
+                  'px-6 py-4 md:px-8 md:py-6',
+                  'transition-all duration-[400ms] ease-in-out',
                   showDescription
                     ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-4 pointer-events-none'
+                    : 'opacity-0 translate-y-2 pointer-events-none'
                 )}
+                style={{
+                  boxShadow: showDescription 
+                    ? '0 -4px 20px rgba(0, 0, 0, 0.3)' 
+                    : 'none'
+                }}
               >
-                <p className="text-white text-base md:text-lg lg:text-xl max-w-4xl mx-auto text-center">
+                <p className="text-white/95 text-base md:text-lg lg:text-xl max-w-4xl mx-auto text-center leading-relaxed font-light">
                   {description}
                 </p>
               </div>
