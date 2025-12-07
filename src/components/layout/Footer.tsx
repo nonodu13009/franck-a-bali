@@ -1,3 +1,5 @@
+import { AdminLink } from './admin-link';
+
 export function Footer() {
   return (
     <footer className="relative mt-auto overflow-hidden">
@@ -30,6 +32,7 @@ export function Footer() {
               </svg>
               <span>Instagram</span>
             </a>
+            <AdminLink />
           </div>
         </div>
       </div>
