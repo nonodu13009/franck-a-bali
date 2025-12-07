@@ -33,6 +33,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                data-nav-link
                 className={cn(
                   'text-sm transition-all duration-300 relative group px-1 py-2',
                   pathname === item.href

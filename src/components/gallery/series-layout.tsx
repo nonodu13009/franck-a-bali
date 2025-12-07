@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import * as Dialog from '@radix-ui/react-dialog';
 import type { Series, Image as ImageType } from '@/types/firebase.type';
 import { cn } from '@/lib/utils';
+import { ImageLightbox } from '@/components/ui/image-lightbox';
 
 interface SeriesLayoutProps {
   series: Series;
@@ -66,42 +66,15 @@ export function SeriesLayout({ series, images, locale }: SeriesLayoutProps) {
         })}
       </div>
 
-      <Dialog.Root open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50" />
-          <Dialog.Content className="fixed inset-4 z-50 flex items-center justify-center">
-            {selectedImage && (
-              <div className="relative w-full h-full max-w-7xl max-h-[90vh]">
-                <Image
-                  src={selectedImage.url}
-                  alt={locale === 'en' ? selectedImage.altEn : selectedImage.alt}
-                  fill
-                  className="object-contain"
-                  sizes="100vw"
-                  quality={90}
-                  priority
-                />
-                <Dialog.Close className="absolute top-4 right-4 p-2 bg-background/80 rounded-sm hover:bg-background transition-colors">
-                  <span className="sr-only">Close</span>
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </Dialog.Close>
-              </div>
-            )}
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+      {selectedImage && (
+        <ImageLightbox
+          imageUrl={selectedImage.url}
+          imageAlt={locale === 'en' ? selectedImage.altEn : selectedImage.alt}
+          isOpen={!!selectedImage}
+          onClose={() => setSelectedImage(null)}
+          description={locale === 'en' ? selectedImage.altEn : selectedImage.alt}
+        />
+      )}
     </div>
   );
 }

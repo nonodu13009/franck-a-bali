@@ -72,6 +72,8 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
         serif: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
+        'proxima-nova': ['var(--font-proxima-nova)', 'Montserrat', 'system-ui', 'sans-serif'],
+        lora: ['var(--font-lora)', 'Lora', 'Georgia', 'serif'],
       },
     },
   },

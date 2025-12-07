@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Montserrat, Lora } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -14,6 +14,21 @@ const playfair = Playfair_Display({
   display: 'swap',
   style: ['normal', 'italic'],
   weight: ['400', '600', '700'],
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-proxima-nova',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
+
+const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-lora',
+  display: 'swap',
+  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -54,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${playfair.variable} ${montserrat.variable} ${lora.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );

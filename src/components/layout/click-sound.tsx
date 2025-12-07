@@ -12,9 +12,13 @@ export function ClickSound() {
     audio.preload = 'auto';
     audioRef.current = audio;
 
-    // Fonction pour jouer le son
-    const playSound = () => {
-      if (audioRef.current) {
+    // Fonction pour jouer le son uniquement sur les liens de navigation
+    const playSound = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      // Vérifier si le clic est sur un lien de navigation ou un de ses enfants
+      const navLink = target.closest('[data-nav-link]');
+      
+      if (navLink && audioRef.current) {
         // Réinitialiser et jouer
         audioRef.current.currentTime = 0;
         audioRef.current.play().catch((error) => {

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 import type { Series } from '@/types/firebase.type';
 
 interface ImageCardProps {
@@ -64,6 +65,25 @@ export function ImageCard({ series, locale }: ImageCardProps) {
         )}
         {/* Border gradient subtil */}
         <div className="absolute inset-0 rounded-sm pointer-events-none border border-white/5 group-hover:border-white/10 transition-colors duration-500" />
+
+        {/* Overlay avec nom de la galerie au hover */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            className={cn(
+              'px-4 py-3 md:px-6 md:py-4',
+              'bg-black/60 backdrop-blur-sm',
+              'rounded-sm',
+              'transition-all duration-300 ease-out',
+              'group-hover:opacity-100 group-hover:translate-y-0',
+              'opacity-0 translate-y-4',
+              'group-active:opacity-100 group-active:translate-y-0' // Pour mobile (touch)
+            )}
+          >
+            <h3 className="text-white text-lg md:text-xl lg:text-2xl font-medium text-center whitespace-nowrap">
+              {title}
+            </h3>
+          </div>
+        </div>
       </div>
     </Link>
   );
