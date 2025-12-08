@@ -22,6 +22,7 @@ export function AdminSidebar() {
     { href: `${basePath}/galleries`, label: 'Galeries' },
     { href: `${basePath}/blog`, label: 'Blog' },
     { href: `${basePath}/homepage`, label: 'Homepage' },
+    { href: `${basePath}/about`, label: 'About' },
   ];
 
   return (

@@ -13,7 +13,7 @@ import {
 } from 'firebase/firestore';
 import { db } from './config';
 import type { Series, Image, BlogPost } from '@/types/firebase.type';
-import type { HomepageData } from '@/types/admin.type';
+import type { HomepageData, AboutData } from '@/types/admin.type';
 
 // ===== SERIES =====
 
@@ -215,5 +215,40 @@ export async function updateHomepageData(data: Partial<HomepageData>): Promise<v
   } else {
     // Créer le document s'il n'existe pas
     await setDoc(homepageRef, data);
+  }
+}
+
+// ===== ABOUT PAGE =====
+
+const ABOUT_DOC_ID = 'about';
+
+export async function getAboutData(): Promise<AboutData | null> {
+  if (!db) {
+    throw new Error('Firestore is not initialized');
+  }
+
+  const aboutRef = doc(db, 'about', ABOUT_DOC_ID);
+  const docSnap = await getDoc(aboutRef);
+
+  if (!docSnap.exists()) {
+    return null;
+  }
+
+  return docSnap.data() as AboutData;
+}
+
+export async function updateAboutData(data: Partial<AboutData>): Promise<void> {
+  if (!db) {
+    throw new Error('Firestore is not initialized');
+  }
+
+  const aboutRef = doc(db, 'about', ABOUT_DOC_ID);
+  const docSnap = await getDoc(aboutRef);
+
+  if (docSnap.exists()) {
+    await updateDoc(aboutRef, data);
+  } else {
+    // Créer le document s'il n'existe pas
+    await setDoc(aboutRef, data);
   }
 }

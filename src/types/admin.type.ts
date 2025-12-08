@@ -1,5 +1,35 @@
 // Types admin - pas besoin d'importer Series, Image, BlogPost ici
 
+export interface AboutSection {
+  text: string;
+  textEn: string;
+  image: string;
+  imageAlt: string;
+  imageAltEn: string;
+  position: 'left' | 'right';
+  order: number;
+}
+
+export interface AboutCTA {
+  title: string;
+  titleEn: string;
+  subtitle: string;
+  subtitleEn: string;
+  galleryButton: string;
+  galleryButtonEn: string;
+  shopButton: string;
+  shopButtonEn: string;
+}
+
+export interface AboutData {
+  heroImage: {
+    src: string;
+    alt: string;
+  };
+  sections: AboutSection[];
+  cta: AboutCTA;
+}
+
 export interface HomepageData {
   heroImage: {
     src: string;
