@@ -22,21 +22,29 @@ let db: Firestore | null = null;
 let storage: FirebaseStorage | null = null;
 let auth: Auth | null = null;
 
-// N'initialiser Firebase que si la config est complète
+// Initialiser Firebase
 if (isFirebaseConfigured) {
-if (!getApps().length) {
-  app = initializeApp(firebaseConfig);
-} else {
-  app = getApps()[0];
-}
+  try {
+    if (!getApps().length) {
+      app = initializeApp(firebaseConfig);
+    } else {
+      app = getApps()[0];
+    }
 
-  if (app) {
-    db = getFirestore(app);
-    storage = getStorage(app);
-    auth = getAuth(app);
+    if (app) {
+      db = getFirestore(app);
+      storage = getStorage(app);
+      auth = getAuth(app);
+    }
+  } catch (error) {
+    console.error('[Firebase] Erreur lors de l\'initialisation:', error);
   }
 } else {
-  console.log('[Firebase] Configuration incomplète - Mode mock data activé');
+  console.warn('[Firebase] Configuration incomplète - Vérifiez vos variables d\'environnement');
+  console.warn('[Firebase] Variables manquantes:', Object.entries(firebaseConfig)
+    .filter(([_, val]) => !val || val === 'undefined' || val === '')
+    .map(([key]) => key)
+  );
 }
 
 export { db, storage, auth };
